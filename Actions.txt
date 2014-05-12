@@ -1,0 +1,9 @@
+Actions (target Player)
+1 : Move Forward X Tiles
+2 : Move Back X Tiles
+3 : Stop X Turn
+4 : Set Trap in tile behind
+5 : Discard X Card of Player Y
+Trap (target self)
+
+YuliantiOenang
