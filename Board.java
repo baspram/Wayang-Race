@@ -18,6 +18,7 @@ public class Board {
 	//Attribute
 	private Cell cell[][];
 	boolean initialized = false;
+	int nplayer;
 	//Method
 	// Constructor
 	public Board()
@@ -27,6 +28,19 @@ public class Board {
 			for(int j=0; j<BOARDX; j++)
 				cell[i][j] = new Cell();
 		initialized = initRoad();
+	}
+	public Board(int Nplayer)
+	{
+		cell = new Cell[BOARDY][BOARDX];
+		for(int i=0; i<BOARDY; i++)
+			for(int j=0; j<BOARDX; j++)
+				cell[i][j] = new Cell();
+		initialized = initRoad();
+		for(int i=1; i<=Nplayer; i++)
+		{
+			Integer in = new Integer(i);
+			cell[0][0].setPlayersIn(in.toString());
+		}
 	}
 	
 	// Scan dari file eksternal, membuat jalan
