@@ -19,18 +19,34 @@ public class Player {
     private int position;
     /* Player's suspended times */
     private int stop;
-    private int currentLap;
+    /* Player's lap number */
+	private int currentLap;
+	/* Has player played card? */
     private boolean PlayedCard;
+	/* Could player move */
     private boolean Advanced;
+        /*Action used */
+    protected boolean actionUsed;
+	/* Total number of tiles on the block */
     private final int NBLOCK = 42;
+	/* Imunity of player */
+    protected boolean imunity;
+    /* Player's recharge */
+    protected int rechargeTime;
+    /* Player's dice rolled */
+    private int diceRolled;
     /* Player's constructor */
     public Player(){
-		hand = new Hand();
+        hand = new Hand();
         position = 1;
         stop = 0;
         currentLap = 1;
         Advanced = false;
         PlayedCard = false;
+	imunity = false;
+	rechargeTime = 0;
+        diceRolled = 0;
+        actionUsed = false;
     }
     /* Player's getter */
     public int getPosition(){
@@ -42,52 +58,74 @@ public class Player {
     public int getCurrentLap(){
         return currentLap;
     }
+    public int getDiceRolled(){
+        return diceRolled;
+    }
     public Hand getHand(){
 		return hand;
 	}
-	public boolean hasAdvanced(){
-		return Advanced;
+    public boolean hasAdvanced(){
+            return Advanced;
+    }
+    public boolean hasPlayedACard(){
+            return PlayedCard;
+    }
+    public void setPosition(int target){
+		Position = target;
 	}
-	public boolean hasPlayedACard(){
-		return PlayedCard;
-	}
-    
+	/* Print player's condition */
     public String toString(){
 		String S = "Role: " + "\nPutaran: " + currentLap + "\nPosisi: " + position;
 		return S;
 	}
     
+	/* Initalize condition, every turn */
     public void StartTurn(){
 		Advanced = false;
 		PlayedCard = false;
+		imunity = false;
+                diceRolled = 0;
+                actionUsed = false;
 	}
     
+        /* Select the target for attack */
+    public int SelectTarget(){
+		Scanner targetin = new Scanner(System.in);
+		System.out.println("Choose Target: ");
+		return targetin.nextInt();
+    }
+    
+    public int SelectCardTarget(){
+		Scanner targetin = new Scanner(System.in);
+    		System.out.println("Choose Card: ");
+		return targetin.nextInt();
+    }
     /* Player advance on the map as many as the dice rolled */
     public void Advance(int diceNum){
-		if(Advanced == false && stop==0){
+		if(!Advanced&& stop==0){
 			position += diceNum;
 			if(position>=NBLOCK){
 				position -=NBLOCK;
 				currentLap++;
 			}
 			Advanced = true;
+                        if(currentLap > Game.getReqLap()){
+                            Game.finish();
+                        }
 		}
 		else{
 			System.out.println("Anda telah maju dari kocokan dadu putaran ini atau sedang terkena stop");
 		}
     }
     
-    public void setPosition(int posisi)
-    {
-    	position = posisi;
-    }
-    
+	/* Change the position of player because damaged */
     public void Attacked(int damage){
-		position -= damage;
-		if(position<0){
-			position += NBLOCK;
-			currentLap--;
-		}
+            if(!imunity){
+                    position -= damage;
+                    if(position<0){
+                            position = 1;
+                    }
+            }
 	}
     
     /* Player use one of his card */
@@ -114,15 +152,22 @@ public class Player {
         currentLap++;
     }
     
+	/* Player end his turn */
     public void EndTurn(){
 		if (stop>0){
 			stop--;
 		}
+                rechargeTime++;
 	}
     
+	/* Initalize Lap */
     public void StartLap(Deck D){
 		hand.DiscardAll();
 		hand.DrawStart(D);
 	}
+   
+    public void useAction(){
+        ;
+    }
 		
 }

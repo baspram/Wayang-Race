@@ -30,7 +30,10 @@ class BoostCard extends Card{
 		System.out.println("Played: " + this);
 		System.out.println("Karakter anda maju " + damage + " langkah");
 		Game.getCurrentPlayer().Attacked(damage*-1);
-		Game.getBoard().move(Game.getCurrentPlayer(), Game.getCurrentPlayerIdx(), damage);
+		int targettilestatus = Game.getBoard().move(Game.getCurrentPlayer(), Game.getCurrentPlayerIdx(), damage);
+		if(targettilestatus==88){
+			Game.TrapTriggered();
+		}
 	}
 }
 

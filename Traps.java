@@ -1,10 +1,10 @@
-public class AttackTrap extends AttackCard{
+class AttackTrap extends AttackCard{
 	public AttackTrap(String Name, String desc, int dmg){
 		super(Name,desc,dmg);
 	}
 	
 	public int SelectTarget(){
-		return 0; //0 diganti index of active player
+		return Game.getCurrentPlayerIdx(); //0 diganti index of active player
 	}
 }
 
@@ -14,7 +14,7 @@ class DisarmTrap extends DisarmCard{
 	}
 	
 	public int SelectTarget(){
-		return 0; //0 diganti index of active player
+		return Game.getCurrentPlayerIdx(); //0 diganti index of active player
 	}
 }
 
@@ -24,6 +24,6 @@ class StopTrap extends StopCard{
 	}
 	
 	public int SelectTarget(){
-		return 0; //0 diganti index of active player
+		return Game.getCurrentPlayerIdx(); //0 diganti index of active player
 	}
 }
