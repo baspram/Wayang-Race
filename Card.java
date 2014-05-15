@@ -14,7 +14,7 @@ public class Card{
 		Description = desc;
 		}
 		
-	public void PlayCard(Game G){}
+	public void PlayCard(){}
 	public int SelectTarget(){
 		Scanner targetin = new Scanner(System.in);
 		System.out.println("Choose Target: ");

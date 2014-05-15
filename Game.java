@@ -2,18 +2,18 @@ import java.util.*;
 import java.io.*;
 
 public class Game{
-	private ArrayList<Player> Players;
+	private static ArrayList<Player> Players;
 	private Deck ActionDeck;
 	private Deck TrapDeck;
-	private Board GameBoard;
-	private DiscardPile DumpPile;
-	private int CurrentPlayer;
+	private static Board GameBoard;
+	private static DiscardPile DumpPile;
+	private static int CurrentPlayer;
 	private final int DiceSide = 12;
 	
 	Game(int Nplayer){
 		ActionDeck = new Deck();
 		TrapDeck = new Deck();
-		GameBoard = new Board(Nplayer);
+		GameBoard = new Board();
 		DumpPile = new DiscardPile();
 		Players = new ArrayList<Player>();
 		Players.add(new Player()); //untuk menutup indeks player ke 0
@@ -25,17 +25,20 @@ public class Game{
 		Initialization();
 	}
 	
-	public DiscardPile getDP(){
+	public static DiscardPile getDP(){
 		return DumpPile;
 	}
-	public ArrayList<Player> getPlayers(){
+	public static ArrayList<Player> getPlayers(){
 		return Players;
 	}
-	public Board getBoard(){
+	public static Board getBoard(){
 		return GameBoard;
 	}
-	public int getCurrentPlayerIdx(){
+	public static int getCurrentPlayerIdx(){
 		return CurrentPlayer;
+	}
+	public static Player getCurrentPlayer(){
+		return Players.get(CurrentPlayer);
 	}
 	
 	public void Initialization(){
@@ -47,7 +50,7 @@ public class Game{
 		catch(Exception e){}
 		ActionDeck.Shuffle();
 		for(int i=1;i<Players.size();i++){
-			Players.get(i).StartLap(ActionDeck, DumpPile);
+			Players.get(i).StartLap(ActionDeck);
 		}
 	}
 	
@@ -91,7 +94,7 @@ public class Game{
 						Players.get(CurrentPlayer).Advance(movement);
 						targettilestatus = GameBoard.move(Players.get(CurrentPlayer), CurrentPlayer, movement);
 						break;
-				case 2: Players.get(CurrentPlayer).PlayCard(this,DumpPile); break;
+				case 2: Players.get(CurrentPlayer).PlayCard(); break;
 				case 3: System.out.println("Status: blablabla"); break;
 				case 4: Players.get(CurrentPlayer).EndTurn();
 						if(CurrentPlayer<Players.size()-1){
@@ -114,7 +117,5 @@ public class Game{
 			Turn();
 		}
 	}
-	public Player getCurrentPlayer(){
-		return Players.get(CurrentPlayer);
-	}
+	
 }

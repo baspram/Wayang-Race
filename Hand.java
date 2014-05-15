@@ -23,11 +23,11 @@ public class Hand{
 		}
 	}
 		
-	public void PlayCard(Game G, int i, DiscardPile DP){
+	public void PlayCard(int i){
 		Card CardPlayed = new Card();
 		CardPlayed = H.get(i);
-		CardPlayed.PlayCard(G);
-		Discard(i, DP);
+		CardPlayed.PlayCard();
+		Discard(i);
 	}
 	
 	public void DisplayHand(){
@@ -36,15 +36,15 @@ public class Hand{
 		}
 	}
 	
-	public void Discard(int idxCard, DiscardPile DP){
-			DP.GetCard(H.get(idxCard));
+	public void Discard(int idxCard){
+			Game.getDP().GetCard(H.get(idxCard));
 			H.remove(idxCard);
 	}
 	
-	public void DiscardAll(DiscardPile DP){
+	public void DiscardAll(){
 		int n = H.size();
 		for(int i=0;i<n;i++){
-			DP.GetCard(H.get(0));
+			Game.getDP().GetCard(H.get(0));
 			H.remove(0);
 		}
 	}
