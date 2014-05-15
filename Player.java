@@ -86,13 +86,13 @@ public class Player {
 	}
     
     /* Player use one of his card */
-    public void PlayCard(Game G, DiscardPile DP){
+    public void PlayCard(){
 		if(PlayedCard==false){
 			Scanner CardChoice = new Scanner(System.in);
 			System.out.print("Pilih nomor kartu yang ingin dimainkan(99 untuk batal): ");
 			int IdxCard = CardChoice.nextInt();
 			if(IdxCard!=99 && IdxCard<hand.getSize()){
-				hand.PlayCard(G, IdxCard, DP);
+				hand.PlayCard(IdxCard);
 				PlayedCard = true;
 			}
 		}
@@ -115,8 +115,8 @@ public class Player {
 		}
 	}
     
-    public void StartLap(Deck D, DiscardPile DP){
-		hand.DiscardAll(DP);
+    public void StartLap(Deck D){
+		hand.DiscardAll();
 		hand.DrawStart(D);
 	}
 		
