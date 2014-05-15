@@ -218,8 +218,7 @@ public class Board {
 		
 		if(istrap.contains(TRAPCELL))
 			return 88;
-		else
-			return 1;
+		else return 1;
 			
 	}
 }
