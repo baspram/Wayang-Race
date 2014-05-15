@@ -181,37 +181,32 @@ public class Board {
 		return kembalian;
 	}
 	
+	public boolean setTrap(int NoCell)
+	{
+		Integer trap = new Integer(NoCell);
+		int koordinat[] = getCellCoor(trap.toString());
+		return cell[koordinat[0]][koordinat[1]].setTrap();
+	}
+	
+	public boolean unsetTrap(int NoCell)
+	{
+		Integer trap = new Integer (NoCell);
+		int koordinat[] = getCellCoor(trap.toString());
+		return cell[koordinat[0]][koordinat[1]].unsetTrap();
+	}
+	
 	// memindahkan player nomor playernumber sebesar increment
 	public int move(Player pl, int playernumber, int increment)
 	{
 		Integer pn = new Integer(playernumber);
-		int posnow = pl.getPosition()-increment;
-		if(posnow<0){
-			posnow = posnow+NBLOCK;
-		}
-		/*
-		switch(playernumber)
-		{
-		case 1 : 
-			posnow = P1pos;
-			P1pos = (P1pos + increment)%NBLOCK;
-			break;
-		case 2 : 
-			posnow = P2pos;
-			P2pos = (P2pos + increment)%NBLOCK;
-			break;
-		case 3 : 
-			posnow = P3pos;
-			P3pos = (P3pos + increment)%NBLOCK;
-			break;
-		case 4 : 
-			posnow = P4pos;
-			P4pos = (P4pos + increment)%NBLOCK;
-			break;
-		}
-		*/
+		int posnow = pl.getPosition();
+		
 		//LETAKKAN di tujuan
-		Integer tujuan = new Integer((posnow + increment)%NBLOCK);
+		Integer tujuan = new Integer(0);
+		if(posnow + increment <= 0)
+			tujuan = new Integer(1);
+		else 
+			tujuan = new Integer((posnow + increment)%NBLOCK);
 		int koordinat[] = getCellCoor(tujuan.toString());
 		cell[koordinat[0]][koordinat[1]].setPlayersIn(pn.toString());
 		String istrap = cell[koordinat[0]][koordinat[1]].getPlayersIn();
@@ -224,5 +219,6 @@ public class Board {
 			return 88;
 		else
 			return 1;
+			
 	}
 }
