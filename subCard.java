@@ -13,8 +13,8 @@ class AttackCard extends Card{
 		int targetpl = SelectTarget();
 		System.out.println("Played: " + this);
 		System.out.println("Player: " + targetpl + " mundur " + damage + " langkah");
-		Game.getPlayers().get(targetpl).Attacked(damage);
 		Game.getBoard().move(Game.getPlayers().get(targetpl), targetpl, damage*-1);
+		Game.getPlayers().get(targetpl).Attacked(damage);
 	}
 }
 
@@ -29,8 +29,8 @@ class BoostCard extends Card{
 	public void PlayCard(){
 		System.out.println("Played: " + this);
 		System.out.println("Karakter anda maju " + damage + " langkah");
-		Game.getCurrentPlayer().Attacked(damage*-1);
 		int targettilestatus = Game.getBoard().move(Game.getCurrentPlayer(), Game.getCurrentPlayerIdx(), damage);
+		Game.getCurrentPlayer().Attacked(damage*-1);
 		if(targettilestatus==88){
 			Game.TrapTriggered();
 		}

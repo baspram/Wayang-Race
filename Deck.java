@@ -66,6 +66,13 @@ public class Deck{
 		catch(Exception e){};
 	}
 	
+	public void PlayTopDeck(){
+		Card DrawnCard = new Card();
+		DrawnCard = D.peek();
+		D.pop();
+		DrawnCard.PlayCard();
+	}
+	
 	public Card Drawn(){
 		Card DrawnCard = new Card();
 		DrawnCard = D.peek();

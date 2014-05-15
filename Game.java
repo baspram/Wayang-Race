@@ -9,7 +9,7 @@ public class Game{
 	private static DiscardPile DumpPile;
 	private static int CurrentPlayer;
 	private final int DiceSide = 12;
-	private final int ReqLap = 3;
+	private static final int ReqLap = 3;
 	
 	Game(int Nplayer){
 		ActionDeck = new Deck();
@@ -87,7 +87,7 @@ public class Game{
 			else{
 				System.out.println("");
 			}
-			System.out.println("3) Cek Status");
+			System.out.println("3) Pakai Aksi Khusus");
 			System.out.println("4) Akhiri Giliran");
 			System.out.println("");
 			System.out.println("Kartu di tangan: ");
@@ -96,14 +96,14 @@ public class Game{
 			opt = Option.nextInt();
 			switch(opt){
 				case 1: movement = 1+Dice.nextInt(DiceSide);
-						Players.get(CurrentPlayer).Advance(movement);
 						targettilestatus = GameBoard.move(Players.get(CurrentPlayer), CurrentPlayer, movement);
+						Players.get(CurrentPlayer).Advance(movement);
 						if(targettilestatus==88){
 							TrapTriggered();
 						}
 						break;
 				case 2: Players.get(CurrentPlayer).PlayCard(); break;
-				case 3: System.out.println("Status: blablabla"); break;
+				case 3: Players.get(CurrentPlayer).useAction(); break;
 				case 4: Players.get(CurrentPlayer).EndTurn();
 						if(CurrentPlayer<Players.size()-1){
 							CurrentPlayer++;
@@ -122,6 +122,9 @@ public class Game{
 	public static void TrapTriggered(){
 		System.out.println("Pemain terkena jebakan");
 		TrapDeck.PlayTopDeck();
+	}
+	
+	public static void finish(){
 	}
 	
 	public void Start(){
