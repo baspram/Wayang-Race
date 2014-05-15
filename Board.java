@@ -6,6 +6,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
+
 public class Board {
 	//Constant
 	private final int BOARDX = 12;
@@ -13,14 +14,10 @@ public class Board {
 	private final int NBLOCK = 42; 
 	private final String CLEARCELL = "99";
 	private final String TRAPCELL = "88";
-	private final String boardfilename = "Circuit.xml";
+	private final String boardfilename = "circuit.xml";
 	//Attribute
 	private Cell cell[][];
 	boolean initialized = false;
-	int P1pos = 1;
-	int P2pos = 1;
-	int P3pos = 1;
-	int P4pos = 1;
 	//Method
 	// Constructor
 	public Board()
@@ -171,10 +168,14 @@ public class Board {
 	}
 	
 	// memindahkan player nomor playernumber sebesar increment
-	public int move(int playernumber, int increment)
+	public int move(Player pl, int playernumber, int increment)
 	{
 		Integer pn = new Integer(playernumber);
-		int posnow=0;
+		int posnow = pl.getPosition()-increment;
+		if(posnow<0){
+			posnow = posnow+NBLOCK;
+		}
+		/*
 		switch(playernumber)
 		{
 		case 1 : 
@@ -194,6 +195,7 @@ public class Board {
 			P4pos = (P4pos + increment)%NBLOCK;
 			break;
 		}
+		*/
 		//LETAKKAN di tujuan
 		Integer tujuan = new Integer((posnow + increment)%NBLOCK);
 		int koordinat[] = getCellCoor(tujuan.toString());

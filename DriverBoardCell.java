@@ -15,9 +15,10 @@ public class DriverBoardCell {
 			command = command.toLowerCase();
 			if(command.equals("move"))
 			{
+				Player p = new Player();
 				int noPemain = keyboard.nextInt();
 				int increment = keyboard.nextInt();
-				int kode = game.move(noPemain, increment);
+				int kode = game.move(p,noPemain, increment);
 				if(kode == 88)
 					System.out.println("TRAP");
 			}

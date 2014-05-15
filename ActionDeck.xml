@@ -1,0 +1,177 @@
+<?xml version="1.1"?>
+<deck>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Memacu Kuda</name>
+		<desc>Karakter anda maju 4 langkah</desc>
+		<power>4</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Memacu Kuda</name>
+		<desc>Karakter anda maju 4 langkah</desc>
+		<power>4</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Memacu Kuda</name>
+		<desc>Karakter anda maju 4 langkah</desc>
+		<power>4</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Memacu Kuda</name>
+		<desc>Karakter anda maju 4 langkah</desc>
+		<power>4</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Memacu Kuda</name>
+		<desc>Karakter anda maju 4 langkah</desc>
+		<power>4</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>MAJU!</name>
+		<desc>Karakter anda maju 6 langkah</desc>
+		<power>6</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>MAJU!</name>
+		<desc>Karakter anda maju 6 langkah</desc>
+		<power>6</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>MAJU!</name>
+		<desc>Karakter anda maju 6 langkah</desc>
+		<power>6</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Kecepatan Dewa</name>
+		<desc>Karakter anda maju 10 langkah</desc>
+		<power>10</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Kecepatan Dewa</name>
+		<desc>Karakter anda maju 10 langkah</desc>
+		<power>10</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Serangan Mendadak</name>
+		<desc>Pemain Target Mundur 4 langkah</desc>
+		<power>4</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Serangan Mendadak</name>
+		<desc>Pemain Target Mundur 4 langkah</desc>
+		<power>4</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Serangan Mendadak</name>
+		<desc>Pemain Target Mundur 4 langkah</desc>
+		<power>4</power>
+	</card>
+		<card>
+		<ActionID>2</ActionID>
+		<name>Serangan Mendadak</name>
+		<desc>Pemain Target Mundur 4 langkah</desc>
+		<power>4</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Hujan Panah</name>
+		<desc>Pemain Target Mundur 6 langkah</desc>
+		<power>6</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Hujan Panah</name>
+		<desc>Pemain Target Mundur 6 langkah</desc>
+		<power>6</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Hujan Panah</name>
+		<desc>Pemain Target Mundur 6 langkah</desc>
+		<power>6</power>
+	</card>
+	<card>
+		<ActionID>3</ActionID>
+		<name>Aji Sirep</name>
+		<desc>Pemain Target tidak melakukan aksi apapun untuk putaran berikutnya</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>3</ActionID>
+		<name>Aji Sirep</name>
+		<desc>Pemain Target tidak melakukan aksi apapun untuk putaran berikutnya</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>3</ActionID>
+		<name>Aji Sirep</name>
+		<desc>Pemain Target tidak melakukan aksi apapun untuk putaran berikutnya</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>3</ActionID>
+		<name>Belenggu Nirwana</name>
+		<desc>Pemain Target tidak melakukan aksi apapun untuk 2 putaran berikutnya</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>4</ActionID>
+		<name>Perangkap Hanoman</name>
+		<desc>Menjadikan satu petak dibelakang menjadi petak perangkap</desc>
+		<power>0</power>
+	</card>
+	<card>
+		<ActionID>4</ActionID>
+		<name>Perangkap Hanoman</name>
+		<desc>Menjadikan satu petak dibelakang menjadi petak perangkap</desc>
+		<power>0</power>
+	</card>
+	<card>
+		<ActionID>4</ActionID>
+		<name>Perangkap Hanoman</name>
+		<desc>Menjadikan satu petak dibelakang menjadi petak perangkap</desc>
+		<power>0</power>
+	</card>
+	<card>
+		<ActionID>4</ActionID>
+		<name>Perangkap Hanoman</name>
+		<desc>Menjadikan satu petak dibelakang menjadi petak perangkap</desc>
+		<power>0</power>
+	</card>
+	<card>
+		<ActionID>5</ActionID>
+		<name>Melucuti</name>
+		<desc>Membuang satu kartu pemain target secara random</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>5</ActionID>
+		<name>Melucuti</name>
+		<desc>Membuang satu kartu pemain target secara random</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>5</ActionID>
+		<name>Melucuti</name>
+		<desc>Membuang satu kartu pemain target secara random</desc>
+		<power>1</power>
+	</card>
+		<card>
+		<ActionID>5</ActionID>
+		<name>Melucuti</name>
+		<desc>Membuang satu kartu pemain target secara random</desc>
+		<power>1</power>
+	</card>
+</deck>

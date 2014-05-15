@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Player;
+import java.util.*;
 
 /**
  *
@@ -14,19 +14,23 @@ package Player;
 
 public class Player {
     /* Current player's cards */
-    private Hand hand
+    private Hand hand;
     /* Player's position on the map */
     private int position;
     /* Player's suspended times */
     private int stop;
     private int currentLap;
-    
+    private boolean PlayedCard;
+    private boolean Advanced;
+    private final int NBLOCK = 42;
     /* Player's constructor */
     public Player(){
 		hand = new Hand();
-        position = 0;
+        position = 1;
         stop = 0;
-        currentLap = 0;
+        currentLap = 1;
+        Advanced = false;
+        PlayedCard = false;
     }
     /* Player's getter */
     public int getPosition(){
@@ -38,19 +42,63 @@ public class Player {
     public int getCurrentLap(){
         return currentLap;
     }
+    public Hand getHand(){
+		return hand;
+	}
+	public boolean hasAdvanced(){
+		return Advanced;
+	}
+	public boolean hasPlayedACard(){
+		return PlayedCard;
+	}
+    
+    public String toString(){
+		String S = "Role: " + "\nPutaran: " + currentLap + "\nPosisi: " + position;
+		return S;
+	}
+    
+    public void StartTurn(){
+		Advanced = false;
+		PlayedCard = false;
+	}
+    
     /* Player advance on the map as many as the dice rolled */
     public void Advance(int diceNum){
-       if(stop>0){
-            stop --;
-       }
-       else{
-            position += diceNum;
-       }
+		if(Advanced == false && stop==0){
+			position += diceNum;
+			if(position>=NBLOCK){
+				position -=NBLOCK;
+				currentLap++;
+			}
+			Advanced = true;
+		}
+		else{
+			System.out.println("Anda telah maju dari kocokan dadu putaran ini atau sedang terkena stop");
+		}
     }
     
+    public void Attacked(int damage){
+		position -= damage;
+		if(position<0){
+			position += NBLOCK;
+			currentLap--;
+		}
+	}
+    
     /* Player use one of his card */
-    public void PlayCard(){
-        
+    public void PlayCard(Game G, DiscardPile DP){
+		if(PlayedCard==false){
+			Scanner CardChoice = new Scanner(System.in);
+			System.out.print("Pilih nomor kartu yang ingin dimainkan(99 untuk batal): ");
+			int IdxCard = CardChoice.nextInt();
+			if(IdxCard!=99 && IdxCard<hand.getSize()){
+				hand.PlayCard(G, IdxCard, DP);
+				PlayedCard = true;
+			}
+		}
+		else{
+			System.out.println("Anda telah menggunakan kartu di putaran ini");
+		}
     }
     /* Suspended as many as the number */
     public void Stopped(int suspend){
@@ -60,4 +108,16 @@ public class Player {
     public void increaseLap(){
         currentLap++;
     }
+    
+    public void EndTurn(){
+		if (stop>0){
+			stop--;
+		}
+	}
+    
+    public void StartLap(Deck D, DiscardPile DP){
+		hand.DiscardAll(DP);
+		hand.DrawStart(D);
+	}
+		
 }

@@ -1,0 +1,6 @@
+21;1;;Karakter anda maju 2 langkah
+21;2;Memacu Kuda;Karakter anda maju 2 langkah
+21;2;Memacu Kuda;Karakter anda maju 2 langkah
+22;1;Perampok Bayangan;Buang 1 kartu secara acak dari tangan anda
+22;1;Perampok Bayangan;Buang 1 kartu secara acak dari tangan anda
+23;1;Jerat Racun;Berhenti satu putaran

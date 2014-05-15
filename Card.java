@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Card{
 	protected String CardName;
 	protected String Description;
@@ -12,7 +14,12 @@ public class Card{
 		Description = desc;
 		}
 		
-	public void PlayCard(){}
+	public void PlayCard(Game G){}
+	public int SelectTarget(){
+		Scanner targetin = new Scanner(System.in);
+		System.out.println("Choose Target: ");
+		return targetin.nextInt();
+	}
 
 	public String getCardName(){ return CardName; }
 	public String getDescription(){ return Description; }

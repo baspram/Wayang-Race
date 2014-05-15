@@ -1,5 +1,11 @@
 import java.util.*;
 import java.io.*;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
 
 public class Deck{
 	private Stack<Card> D;
@@ -32,29 +38,35 @@ public class Deck{
 		}
 	}
 	
-	public void LoadDeck(FileInputStream F){
-		Scanner CardLoader = new Scanner(F);
-		Scanner LineParser;
-		CardFactory CF = new CardFactory();
-		Card cardin;
-		int id,power;
-		String line,name,desc;
-		int i=1;
-		while(CardLoader.hasNextLine()){
-			line = CardLoader.nextLine();
-			LineParser = new Scanner(line).useDelimiter(";");
-			id = LineParser.nextInt();
-			power = LineParser.nextInt();
-			name = LineParser.next();
-			desc = LineParser.next();
-			cardin = CF.getCard(name, desc, power, id);
-			D.push(cardin);
-			i++;
+	public void LoadDeck(File F){
+		try{
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(F);
+			doc.getDocumentElement().normalize();
+			NodeList nList = doc.getElementsByTagName("card");
+			CardFactory CF = new CardFactory();
+			Card cardin;
+			int id,power;
+			String name,desc;
+			int i=1;
+			for (int temp = 0; temp < nList.getLength(); temp++){
+				Node nNode = nList.item(temp);
+				if (nNode.getNodeType() == Node.ELEMENT_NODE){
+					Element eElement = (Element) nNode;
+					id = Integer.parseInt(eElement.getElementsByTagName("ActionID").item(0).getTextContent());
+					name = eElement.getElementsByTagName("name").item(0).getTextContent();
+					desc = eElement.getElementsByTagName("desc").item(0).getTextContent();
+					power = Integer.parseInt(eElement.getElementsByTagName("power").item(0).getTextContent());
+					cardin = CF.getCard(name, desc, power, id);
+					D.push(cardin);
+				}
+			}
 		}
-		CardLoader.close();
+		catch(Exception e){};
 	}
 	
-	public Card Draw(){
+	public Card Drawn(){
 		Card DrawnCard = new Card();
 		DrawnCard = D.peek();
 		D.pop();

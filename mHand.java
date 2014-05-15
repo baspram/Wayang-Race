@@ -13,7 +13,7 @@ class mHand{
 		catch(Exception e){}
 		D.Shuffle();
 		for(int i=1;i<=5;i++){
-			H.Draw(D);
+			H.Draw(D.Drawn());
 		}
 		H.DisplayHand();
 		int IdxCard = PlayerInput.nextInt();
