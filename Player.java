@@ -77,6 +77,11 @@ public class Player {
 		}
     }
     
+    public void setPosition(int posisi)
+    {
+    	position = posisi;
+    }
+    
     public void Attacked(int damage){
 		position -= damage;
 		if(position<0){

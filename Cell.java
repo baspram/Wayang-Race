@@ -2,7 +2,8 @@ public class Cell {
 	//Atribut
 	private String playersIn;
 	private String cellNo;
-	//Konstanta
+	private boolean isTemporaryTrap = false;
+	//Konstantas
 	private final String clearCell = "99";
 	private final String trapCell = "88";
 	private final String noPlayerCell = "0";
@@ -33,9 +34,29 @@ public class Cell {
 		cellNo = No;
 	}
 	
-	public void setTrap()
+	// mengeset cell menjadi trap temprorary
+	public boolean setTrap()
 	{
-		cellNo = trapCell;
+		//bukan temporary trap dan bukan trap permanen
+		if(!playersIn.contains(trapCell))
+		{
+			setPlayersIn(trapCell); //letakkan mark trap 88
+			isTemporaryTrap = true;
+			return true;
+		}
+		else return false;
+	}
+	
+	// unset cell trap temporary menjadi cell biasa
+	public boolean unsetTrap()
+	{
+		if(isTemporaryTrap)
+		{
+			removePlayer(trapCell); //hapus mark trap 88
+			isTemporaryTrap = false;
+			return true;
+		}
+		else return false;
 	}
 	
 	// menambahkan player P ke cell ini
@@ -48,13 +69,15 @@ public class Cell {
 	}
 	
 	// menghapus player P dari cell ini
-	public void removePlayer(String P)
+	public boolean removePlayer(String P)
 	{
 		if(playersIn.contains(P))
 		{
 			//System.out.println("hapus " + P + " di " + playersIn);
 			playersIn = playersIn.replaceAll(P, "");
 			//System.out.println("hasilnya : " + playersIn);
+			return true;
 		}
+		else return false;
 	}
 }
