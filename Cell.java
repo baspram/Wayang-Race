@@ -33,6 +33,11 @@ public class Cell {
 		cellNo = No;
 	}
 	
+	public void setTrap()
+	{
+		cellNo = trapCell;
+	}
+	
 	// menambahkan player P ke cell ini
 	public void setPlayersIn(String P)
 	{

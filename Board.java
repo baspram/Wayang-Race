@@ -181,6 +181,13 @@ public class Board {
 		return kembalian;
 	}
 	
+	public void setTrap(int NoCell)
+	{
+		Integer trap = new Integer(NoCell);
+		int koordinat[] = getCellCoor(trap.toString());
+		cell[koordinat[0]][koordinat[1]].setTrap();
+	}
+	
 	// memindahkan player nomor playernumber sebesar increment
 	public int move(Player pl, int playernumber, int increment)
 	{
