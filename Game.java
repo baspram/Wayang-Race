@@ -4,16 +4,17 @@ import java.io.*;
 public class Game{
 	private static ArrayList<Player> Players;
 	private Deck ActionDeck;
-	private Deck TrapDeck;
+	private static Deck TrapDeck;
 	private static Board GameBoard;
 	private static DiscardPile DumpPile;
 	private static int CurrentPlayer;
 	private final int DiceSide = 12;
+	private final int ReqLap = 3;
 	
 	Game(int Nplayer){
 		ActionDeck = new Deck();
 		TrapDeck = new Deck();
-		GameBoard = new Board();
+		GameBoard = new Board(Nplayer);
 		DumpPile = new DiscardPile();
 		Players = new ArrayList<Player>();
 		Players.add(new Player()); //untuk menutup indeks player ke 0
@@ -40,6 +41,9 @@ public class Game{
 	public static Player getCurrentPlayer(){
 		return Players.get(CurrentPlayer);
 	}
+	public static int getReqLap(){
+		return ReqLap;
+	}
 	
 	public void Initialization(){
 		try{
@@ -49,6 +53,7 @@ public class Game{
 		}
 		catch(Exception e){}
 		ActionDeck.Shuffle();
+		TrapDeck.Shuffle();
 		for(int i=1;i<Players.size();i++){
 			Players.get(i).StartLap(ActionDeck);
 		}
@@ -93,6 +98,9 @@ public class Game{
 				case 1: movement = 1+Dice.nextInt(DiceSide);
 						Players.get(CurrentPlayer).Advance(movement);
 						targettilestatus = GameBoard.move(Players.get(CurrentPlayer), CurrentPlayer, movement);
+						if(targettilestatus==88){
+							TrapTriggered();
+						}
 						break;
 				case 2: Players.get(CurrentPlayer).PlayCard(); break;
 				case 3: System.out.println("Status: blablabla"); break;
@@ -109,6 +117,11 @@ public class Game{
 			}
 			System.out.println(""); 
 		}
+	}
+	
+	public static void TrapTriggered(){
+		System.out.println("Pemain terkena jebakan");
+		TrapDeck.PlayTopDeck();
 	}
 	
 	public void Start(){
