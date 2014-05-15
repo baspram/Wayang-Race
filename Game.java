@@ -13,7 +13,7 @@ public class Game{
 	Game(int Nplayer){
 		ActionDeck = new Deck();
 		TrapDeck = new Deck();
-		GameBoard = new Board();
+		GameBoard = new Board(Nplayer);
 		DumpPile = new DiscardPile();
 		Players = new ArrayList<Player>();
 		Players.add(new Player()); //untuk menutup indeks player ke 0
