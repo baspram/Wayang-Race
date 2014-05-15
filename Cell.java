@@ -47,6 +47,11 @@ public class Cell {
 		else return false;
 	}
 	
+	public boolean isTrap()
+	{
+		return playersIn.contains(trapCell);
+	}
+	
 	// unset cell trap temporary menjadi cell biasa
 	public boolean unsetTrap()
 	{

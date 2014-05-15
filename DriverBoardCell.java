@@ -14,6 +14,8 @@ public class DriverBoardCell {
 			game.drawBoard();
 			System.out.println("Daftar perintah :");
 			System.out.println(">> move <nomor pemain> <increment>");
+			System.out.println(">> set <nomor tile yang diset trap>");
+			System.out.println(">> unset <nomor tile yang diunset trap>");
 			System.out.println(">> exit");
 			command = keyboard.next();
 			command = command.toLowerCase();
@@ -41,6 +43,16 @@ public class DriverBoardCell {
 			else if(command.equals("close") || command.equals("exit"))
 			{
 				System.out.println("terimakasih!");
+			}
+			else if(command.equals("set"))
+			{
+				int noCell = keyboard.nextInt();
+				game.setTrap(noCell);
+			}
+			else if(command.equals("unset"))
+			{
+				int noCell = keyboard.nextInt();
+				game.unsetTrap(noCell);
 			}
 		}
 		keyboard.close();

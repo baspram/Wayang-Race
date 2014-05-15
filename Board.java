@@ -181,11 +181,18 @@ public class Board {
 		return kembalian;
 	}
 	
-	public void setTrap(int NoCell)
+	public boolean setTrap(int NoCell)
 	{
 		Integer trap = new Integer(NoCell);
 		int koordinat[] = getCellCoor(trap.toString());
-		cell[koordinat[0]][koordinat[1]].setTrap();
+		return cell[koordinat[0]][koordinat[1]].setTrap();
+	}
+	
+	public boolean unsetTrap(int NoCell)
+	{
+		Integer trap = new Integer (NoCell);
+		int koordinat[] = getCellCoor(trap.toString());
+		return cell[koordinat[0]][koordinat[1]].unsetTrap();
 	}
 	
 	// memindahkan player nomor playernumber sebesar increment
