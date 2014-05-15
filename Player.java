@@ -71,7 +71,7 @@ public class Player {
             return PlayedCard;
     }
     public void setPosition(int target){
-		Position = target;
+		position = target;
 	}
 	/* Print player's condition */
     public String toString(){

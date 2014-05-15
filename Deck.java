@@ -1,7 +1,9 @@
 import java.util.*;
 import java.io.*;
+
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
@@ -38,11 +40,11 @@ public class Deck{
 		}
 	}
 	
-	public void LoadDeck(File F){
+	public void LoadDeck(File fileInputStream){
 		try{
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(F);
+			Document doc = dBuilder.parse(fileInputStream);
 			doc.getDocumentElement().normalize();
 			NodeList nList = doc.getElementsByTagName("card");
 			CardFactory CF = new CardFactory();

@@ -8,7 +8,7 @@ class mHand{
 		Deck D = new Deck();
 		Scanner PlayerInput = new Scanner(System.in);
 		try{
-			D.LoadDeck(new FileInputStream("ActionDeck.txt"));
+			D.LoadDeck(new File("ActionDeck.txt"));
 		}
 		catch(Exception e){}
 		D.Shuffle();

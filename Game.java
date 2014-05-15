@@ -97,10 +97,10 @@ public class Game{
 			switch(opt){
 				case 1: movement = 1+Dice.nextInt(DiceSide);
 						targettilestatus = GameBoard.move(Players.get(CurrentPlayer), CurrentPlayer, movement);
-						Players.get(CurrentPlayer).Advance(movement);
 						if(targettilestatus==88){
 							TrapTriggered();
 						}
+						Players.get(CurrentPlayer).Advance(movement);
 						break;
 				case 2: Players.get(CurrentPlayer).PlayCard(); break;
 				case 3: Players.get(CurrentPlayer).useAction(); break;
