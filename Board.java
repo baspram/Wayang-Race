@@ -201,20 +201,21 @@ public class Board {
 		Integer pn = new Integer(playernumber);
 		int posnow = pl.getPosition();
 		
+		//HAPUS di asal
+		Integer asal = new Integer(posnow);
+		int[] koordinat = getCellCoor(asal.toString());
+		cell[koordinat[0]][koordinat[1]].removePlayer(pn.toString());
+		
 		//LETAKKAN di tujuan
 		Integer tujuan = new Integer(0);
 		if(posnow + increment <= 0)
 			tujuan = new Integer(1);
 		else 
 			tujuan = new Integer((posnow + increment)%NBLOCK);
-		int koordinat[] = getCellCoor(tujuan.toString());
+		koordinat = getCellCoor(tujuan.toString());
 		cell[koordinat[0]][koordinat[1]].setPlayersIn(pn.toString());
 		String istrap = cell[koordinat[0]][koordinat[1]].getPlayersIn();
 		
-		//HAPUS di asal
-		Integer asal = new Integer(posnow);
-		koordinat = getCellCoor(asal.toString());
-		cell[koordinat[0]][koordinat[1]].removePlayer(pn.toString());
 		if(istrap.contains(TRAPCELL))
 			return 88;
 		else
