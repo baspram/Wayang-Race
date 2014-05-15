@@ -1,6 +1,11 @@
 import java.util.*;
 import java.io.*;
-
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
 public class Board {
 	//Constant
 	private final int BOARDX = 12;
@@ -8,7 +13,7 @@ public class Board {
 	private final int NBLOCK = 42; 
 	private final String CLEARCELL = "99";
 	private final String TRAPCELL = "88";
-	private final String boardfilename = "circuit.txt";
+	private final String boardfilename = "Circuit.xml";
 	//Attribute
 	private Cell cell[][];
 	boolean initialized = false;
@@ -30,31 +35,34 @@ public class Board {
 	// Scan dari file eksternal, membuat jalan
 	public boolean initRoad()
 	{
-		File file = new File(boardfilename);
-        Scanner scnr = null;
         try {
-            scnr = new Scanner(file);
-        } catch (FileNotFoundException e) {
-        	System.out.println("Not Found");
+			File file = new File(boardfilename);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(file);
+			doc.getDocumentElement().normalize();
+			NodeList nList = doc.getElementsByTagName("tile");
+			int i=0; int j=0;
+			for (int temp = 0; temp < nList.getLength(); temp++){
+				Node nNode = nList.item(temp);
+				if (nNode.getNodeType() == Node.ELEMENT_NODE){
+					Element eElement = (Element) nNode;
+					String CellNum = eElement.getElementsByTagName("CellNum").item(0).getTextContent();
+					String CellP = eElement.getElementsByTagName("CellP").item(0).getTextContent();
+					cell[i][j].setCellNo(CellNum);
+					cell[i][j].setPlayersIn(CellP);
+					j++;
+					if(j==12)
+					{
+						i++;
+						j=0;
+					}
+				}
+			}
+			
+        } catch (Exception e) {
         	return false;
         }
-        int i=0; int j=0;
-        while(scnr.hasNext() && i<BOARDY)
-        {
-        	String CellNum = scnr.next();
-        	String CellP;
-        	if (!CellNum.equals(CLEARCELL)) CellP = scnr.next();
-        	else CellP = CellNum;
-        	cell[i][j].setCellNo(CellNum);
-        	cell[i][j].setPlayersIn(CellP);
-        	j++;
-        	if(j==12)
-        	{
-        		i++;
-        		j=0;
-        	}
-        }
-        scnr.close();
         return true;
 	}
 	
