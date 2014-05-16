@@ -134,10 +134,10 @@ public class Player {
 			currentLap++;
 		}
 		Advanced = true;
-                       /*if(currentLap > Game.getReqLap()){
-                            //assert(1==2)
-                        }*/
-		}
+                if(currentLap > Game.getLapNumber()){
+                    Game.Finish();
+                }
+    }
     
 	/* Change the position of player because damaged */
     public void Attacked(int damage){
@@ -197,6 +197,10 @@ public class Player {
    
     public void useAction(){
         ;
+    }
+    
+    public void setPosition(int pos){
+        position = pos;
     }
 		
 }

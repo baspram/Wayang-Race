@@ -2,56 +2,56 @@
 <deck>
 	<card>
 		<ActionID>21</ActionID>
-		<name>Dibujuki Hanoman</name>
+		<name>Aji Qulhu Geni</name>
 		<desc>Karakter anda mundur 2 langkah</desc>
 		<power>2</power>
 	</card>
 	<card>
 		<ActionID>21</ActionID>
-		<name>Dibujuki Hanoman</name>
+		<name>Aji Qulhu Geni</name>
 		<desc>Karakter anda mundur 2 langkah</desc>
 		<power>2</power>
 	</card>
 	<card>
 		<ActionID>21</ActionID>
-		<name>Dibujuki Hanoman</name>
+		<name>Aji Qulhu Geni</name>
 		<desc>Karakter anda mundur 2 langkah</desc>
 		<power>2</power>
 	</card>
 	<card>
 		<ActionID>22</ActionID>
-		<name>Dicolong Pitik</name>
+		<name>Aji Inti Lebur Sakheti</name>
 		<desc>Buang 1 kartu dari tangan secara acak</desc>
 		<power>1</power>
 	</card>
 	<card>
 		<ActionID>22</ActionID>
-		<name>Dicolong Pitik</name>
+		<name>Aji Inti Lebur Sakheti</name>
 		<desc>Buang 1 kartu dari tangan secara acak</desc>
 		<power>1</power>
 	</card>
 	<card>
 		<ActionID>21</ActionID>
-		<name>Dibujuki Hanoman</name>
+		<name>Aji Qulhu Geni</name>
 		<desc>Karakter anda mundur 2 langkah</desc>
 		<power>2</power>
 	</card>
 	<card>
 		<ActionID>23</ActionID>
-		<name>Jeglongan Nogo</name>
+		<name>Aji Rajah Kalachakra</name>
 		<desc>Karakter berhenti 1 putaran</desc>
-		<power>1</power>
+		<power>2</power>
 	</card>
 	<card>
 		<ActionID>23</ActionID>
-		<name>Jeglongan Nogo</name>
+		<name>Aji Rajah Kalachakra</name>
 		<desc>Karakter berhenti 1 putaran</desc>
-		<power>1</power>
+		<power>2</power>
 	</card>
 	<card>
 		<ActionID>23</ActionID>
-		<name>Jeglongan Nogo</name>
+		<name>Aji Rajah Kalachakra</name>
 		<desc>Karakter berhenti 1 putaran</desc>
-		<power>1</power>
+		<power>2</power>
 	</card>
 </deck>

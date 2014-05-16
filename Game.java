@@ -10,23 +10,35 @@ public class Game{
 	private static int CurrentPlayer;
 	private final int DiceSide = 12;
 	private static boolean GameFinish;
-	
+	private static int LapNumber;
+        
 	Game(int Nplayer){
 		ActionDeck = new Deck();
 		TrapDeck = new Deck();
 		GameBoard = new Board(Nplayer);
 		DumpPile = new DiscardPile();
 		Players = new ArrayList<Player>();
-        PlayerFactory Factory = new PlayerFactory();
+                PlayerFactory Factory = new PlayerFactory();
 		Players.add(new Player()); //untuk menutup indeks player ke 0
 		for(int i=1;i<=Nplayer;i++){
 			Player playerin = Factory.getRole(SelectTarget());
 			Players.add(playerin);
 		}
 		CurrentPlayer=1;
+                setNumberLap();
 		Initialization();
 	}
 	
+        public void setNumberLap(){
+                Scanner targetin = new Scanner(System.in);
+                System.out.println("Number of lap: ");
+                LapNumber = targetin.nextInt();
+        }
+        
+        public static int getLapNumber(){
+                return LapNumber;
+        }
+        
     public String SelectTarget(){
 		Scanner targetin = new Scanner(System.in);
 		System.out.println("Choose Role: ");
@@ -76,7 +88,7 @@ public class Game{
 		Scanner Option = new Scanner(System.in);
 		Random Dice = new Random();
 		Players.get(CurrentPlayer).StartTurn();
-		while(opt!=4){
+		while(opt!=5){
 			GameBoard.drawBoard();
 			System.out.println("Pemain: " + CurrentPlayer);
 			System.out.println(Players.get(CurrentPlayer));
@@ -97,8 +109,7 @@ public class Game{
 			else{
 				System.out.println("");
 			}
-			
-            System.out.println("3) Aksi Khusus");
+                        System.out.println("3) Aksi Khusus");
 			System.out.println("4) Cek Status");
 			System.out.println("5) Akhiri Giliran");
 			System.out.println("");
