@@ -68,11 +68,11 @@ public class Deck{
 		catch(Exception e){};
 	}
 	
-	public void PlayTopDeck(){
+	public void PlayTopDeck(int targetpl){
 		Card DrawnCard = new Card();
 		DrawnCard = D.peek();
 		D.pop();
-		DrawnCard.PlayCard();
+		DrawnCard.PlayCard(targetpl);
 	}
 	
 	public Card Drawn(){

@@ -123,7 +123,7 @@ public class Game{
 							targettilestatus = GameBoard.move(Players.get(CurrentPlayer), CurrentPlayer, movement);
 							Players.get(CurrentPlayer).Advance(movement);
 							if(targettilestatus==88){
-								TrapTriggered();
+								TrapTriggered(CurrentPlayer);
 							}
 						}
 						else{
@@ -149,9 +149,9 @@ public class Game{
 	}
 	
 	
-	public static void TrapTriggered(){
+	public static void TrapTriggered(int target){
 		System.out.println("Pemain terkena jebakan");
-		TrapDeck.PlayTopDeck();
+		TrapDeck.PlayTopDeck(target);
 		GameBoard.unsetTrap(Players.get(CurrentPlayer).getPosition());
 	}
 	

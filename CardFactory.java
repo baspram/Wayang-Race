@@ -8,9 +8,9 @@ public class CardFactory{
 				case 3 : { return new StopCard(name, desc, power);}
 				case 4 : { return new TrapSetCard(name, desc);}
 				case 5 : { return new DisarmCard(name, desc, power);}
-				case 21 : { return new AttackTrap(name,desc,power);}
-				case 22 : { return new DisarmTrap(name,desc,power);}
-				case 23 : { return new StopTrap(name,desc,power);}
+				case 21 : { return new AttackCard(name,desc,power);}
+				case 22 : { return new DisarmCard(name,desc,power);}
+				case 23 : { return new StopCard(name,desc,power);}
 				default: { return new Card();}
 			}
 		}
