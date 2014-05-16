@@ -18,6 +18,10 @@ public class Board {
 	//Window
 	JFrame boardWindow;
 	JPanel boardPanel;
+	String p1 = "token0";
+	String p2 = "token1";
+	String p3 = "token2";
+	String p4 = "token3";
 	private final String boardCoordName = "coord.txt";
 	//Constant
 	private final int BOARDX = 12;
@@ -38,7 +42,7 @@ public class Board {
 		cell = new Cell[BOARDY][BOARDX];
 		for(int i=0; i<BOARDY; i++)
 			for(int j=0; j<BOARDX; j++)
-				cell[i][j] = new Cell();
+				cell[i][j] = new Cell(p1,p2,p3,p4);
 		initialized = initRoad();
 	}
 	public Board(int Nplayer)
@@ -47,7 +51,7 @@ public class Board {
 		cell = new Cell[BOARDY][BOARDX];
 		for(int i=0; i<BOARDY; i++)
 			for(int j=0; j<BOARDX; j++)
-				cell[i][j] = new Cell();
+				cell[i][j] = new Cell(p1,p2,p3,p4);
 		initialized = initRoad();
 		for(int i=1; i<=Nplayer; i++)
 		{
@@ -103,7 +107,12 @@ public class Board {
 						String yitem = eElement.getElementsByTagName("y").item(0).getTextContent();
 						System.out.println("x: " + xitem + " y : " + yitem);
 						cell[i][j].setTilePosition(Integer.parseInt(xitem), Integer.parseInt(yitem));
-						boardPanel.add(cell[i][j].getTile());
+							boardPanel.add(cell[i][j].getTile()[2]);
+							boardPanel.add(cell[i][j].getTile()[3]);
+							boardPanel.add(cell[i][j].getTile()[4]);
+							boardPanel.add(cell[i][j].getTile()[5]);
+						boardPanel.add(cell[i][j].getTile()[1]);
+						boardPanel.add(cell[i][j].getTile()[0]);
 						//boardWindow.add(cell[i][j].getTile());
 						//boardWindow.setVisible(true);
 					}
@@ -130,6 +139,8 @@ public class Board {
 	// menggambarkan board ke layar
 	public void drawBoard()
 	{
+		boardWindow.pack();
+		boardWindow.setSize(1366,768);
 		boardWindow.setVisible(true);
 		if(initialized)
 		{
@@ -203,6 +214,10 @@ public class Board {
 			System.out.println("|   |");
 			System.out.println("|___|");
 			System.out.println();*/
+		}
+		else
+		{
+			System.out.println("Board Init Failed");
 		}
 	}
 	

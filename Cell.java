@@ -1,3 +1,7 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -5,8 +9,12 @@ import javax.swing.JLabel;
 public class Cell {
 	//Window
 	ImageIcon cellIcon;
+	JLabel cellText;
 	JLabel cellTile;
+	ArrayList<JLabel> Player;
+	String[] P;
 	private final int tileSize = 73;
+	private final int tokenSize = 40;
 	private final String normalTile = "images/normal.jpg";
 	private final String trapTile = "images/trap.jpg";
 	//Atribut
@@ -20,27 +28,65 @@ public class Cell {
 	//Methods
 	
 	//konstruktor
-	public Cell()
+	public Cell(String P1, String P2, String P3, String P4)
 	{
+		//Window
+		Player = new ArrayList<JLabel>(4);
+		for(int i=0; i<4; i++)
+		{
+			JLabel e = new JLabel();
+			Player.add(e);
+		}
+		P = new String[4];
+		P[0] = new String(P1);
+		P[1] = new String(P2);
+		P[2] = new String(P3);
+		P[3] = new String(P4);
 		//normal
 		cellNo = clearCell;
 		playersIn = clearCell;
+		cellText = new JLabel();
 		cellTile = new JLabel();
 	}
 	
 	// window setTilePosition
 	public void setTilePosition(int x, int y)
 	{
-		System.out.println("setlocation : " + x + " " + y);
+		//System.out.println("setlocation : " + x + " " + y);
 		cellTile.setLocation(x, y);
-		cellTile.setBounds(x,y,73,73);
+		cellTile.setBounds(x,y,tileSize,tileSize);
 		cellTile.setVisible(true);
+		
+		cellText.setLocation(x, y);
+		cellText.setBounds(x,y,tileSize,tileSize);
+		cellText.setVisible(true);
+		
+		for(int i=0; i<4; i++)
+		{
+			int addx=0; int addy=0;
+			switch(i)
+			{
+			case 1: addx = 36; break; //token 2
+			case 2: addy = 36; break; //token 3
+			case 3: addx = 36; addy = 36; break; //token 4
+			}
+			Player.get(i).setLocation(x+addx, y+addy);
+			Player.get(i).setBounds(x+addx,y+addy,tokenSize,tokenSize);
+			Player.get(i).setVisible(true);
+		}
 	}
 	
 	// window gettile
-	public JLabel getTile()
+	public JLabel[] getTile()
 	{
-		return cellTile;
+		JLabel[] gi = new JLabel[6];
+		gi[0] = cellTile;
+		gi[1] = cellText;
+		gi[2] = Player.get(0);
+		gi[3] = Player.get(1);
+		gi[4] = Player.get(2);
+		gi[5] = Player.get(3);
+		return gi;
 	}
 	
 	// get nomor cell ini
@@ -59,6 +105,15 @@ public class Cell {
 	public void setCellNo(String No)
 	{
 		cellNo = No;
+		
+		//text dalam tile
+		cellText.setSize(tileSize, tileSize);
+		cellText.setText(No);
+		cellText.setForeground(Color.white);
+		cellText.setFont(new Font("Arial", Font.PLAIN, 20));
+		cellText.setVerticalTextPosition(JLabel.CENTER);
+		cellText.setHorizontalAlignment(JLabel.CENTER);
+		cellText.setVisible(true);
 	}
 	
 	// mengeset cell menjadi trap temprorary
@@ -93,21 +148,32 @@ public class Cell {
 	
 	// menambahkan player P ke cell ini
 	public void setPlayersIn(String P)
-	{
+	{	
+		int a = Integer.parseInt(P);
+		if(a >= 1 && a <= 4)
+		{
+			ImageIcon c = new ImageIcon("images/" + this.P[a-1] + ".png");
+			Player.get(a-1).setIcon(c);
+		}
+		
 		//urusan player
 		if(playersIn.equals(clearCell) || playersIn.equals(noPlayerCell))
+		{
 			playersIn = P;
+		}
 		else if(!playersIn.contains(P))
+		{
 			playersIn = playersIn.concat(P);
+		}
 		
 		//window buat trap atau bukan
-		if(P.contains(trapCell))
+		if(playersIn.contains(trapCell))
 			cellIcon = new ImageIcon(ClassLoader.getSystemResource(trapTile));
 		else
 			cellIcon = new ImageIcon(ClassLoader.getSystemResource(normalTile));
+		cellTile.setVerticalTextPosition(JLabel.CENTER);
 		cellTile.setIcon(cellIcon);
 		cellTile.setSize(tileSize,tileSize);
-		cellTile.setText("aaa");
 		cellTile.setVisible(true);
 	}
 	
@@ -119,6 +185,15 @@ public class Cell {
 			//System.out.println("hapus " + P + " di " + playersIn);
 			playersIn = playersIn.replaceAll(P, "");
 			//System.out.println("hasilnya : " + playersIn);
+			
+			if(P.equals(trapCell))
+			{
+				cellIcon = new ImageIcon(ClassLoader.getSystemResource(normalTile));
+				cellTile.setIcon(cellIcon);
+				cellTile.setVisible(true);
+			}
+			int a = Integer.parseInt(P)-1;
+			if(a>=0 && a<=3) Player.get(a).setIcon(null);
 			return true;
 		}
 		else return false;
