@@ -9,8 +9,12 @@
  * @author Ahmad
  */
 public class Yudhistira extends Player{
-     /* Yudhistiraa's description */
-    final String description = "Adityarhedaya";
+    public Yudhistira(){
+        id = 5;
+    }
+    /* Yudhistiraa's description */
+    final String description = "Adityarhedaya: Yudhistira dapat menjaga dirinya dari serangan sebanyak satu putaran\n"
+            + "Kekuatan dapat dilakukan tiap 3 putaran atau lebih";
     
     /* Action of yudhistira */
     public void useAction(){
@@ -19,9 +23,17 @@ public class Yudhistira extends Player{
            /* Can't be attacked for this turn */ 
            imunity = true; 
            actionUsed = true;
+           System.out.println("Aksi berhasil dilakukan! Pemain imun dari serangan sebanyak 1 putaran");
+        }
+        else{
+            System.out.println("Tidak bisa menggunakan aksi ini.");
         }
     }
     public String getDescription(){
         return description;
+    }
+    
+    public String getRole(){
+        return "Yudhistira";
     }
 }

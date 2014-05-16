@@ -9,8 +9,12 @@
  * @author Ahmad
  */
 public class Werkudara extends Player{
+    public Werkudara(){
+        id = 4;
+    }
      /* Werkudara's description */
-    final String description = "Kuku pancanaka";
+    final String description = "Kuku pancanaka: Werkudara dapat menyerang lawan sehingga memundurkan posisinya sejauh 4 langkah\n"
+            + "Kekuatan dapat dilakukan tiap 3 putaran atau lebih";
     /* Action of werkudara */
     public void useAction(){
         //Lalala put your code's here 
@@ -21,9 +25,17 @@ public class Werkudara extends Player{
             Game.getPlayers().get(playerTarget).Attacked(4);
             rechargeTime = 0;
             actionUsed = true;
+            System.out.println("Aksi berhasil dilakukan! Pemain ke-" + playerTarget + " mundur sebanyak 4 langkah");
+        }
+        else{
+            System.out.println("Tidak bisa menggunakan aksi ini.");
         }
     }
     public String getDescription(){
         return description;
+    }
+    
+    public String getRole(){
+        return "Werkudara";
     }
 }

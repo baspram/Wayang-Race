@@ -9,8 +9,12 @@ import java.util.*;
  * @author Ahmad
  */
 public class Sadewa extends Player{
+    public Sadewa(){
+        id = 3;
+    }
      /* Werkudara's description */
-    final String description = "Sadewah";
+    final String description = "Sadewah: Sadewa dapat meniru karakter wayang lain dan menggunakan kekuatan mereka\n"
+            + "Kekuatan dapat dilakukan tiap 4 putaran atau lebih";
     
     /* Action of werkudara */
     public void useAction(){
@@ -31,15 +35,20 @@ public class Sadewa extends Player{
                         Werkudara P = new Werkudara();
                         P.useAction();
                     }
-                    else{
+                    if(playerType==4){
                         Nakula P = new Nakula();
                         P.useAction();
+                    }
+                    else{
+                        System.out.println("Tidak bisa menggunakan aksi ini.");
                     }
                 }
             }
             rechargeTime = 0;
             actionUsed = true;
         }
+        else
+            System.out.println("Tidak bisa menggunakan aksi ini.");
     }
     
    public int SelectType(){
@@ -55,5 +64,9 @@ public class Sadewa extends Player{
     
     public String getDescription(){
         return description;
+    }
+    
+    public String getRole(){
+        return "Sadewa";
     }
 }
