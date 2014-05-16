@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<deck>
+	<card>
+		<ActionID>21</ActionID>
+		<name>Aji Qulhu Geni</name>
+		<desc>Karakter anda mundur 2 langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>21</ActionID>
+		<name>Aji Qulhu Geni</name>
+		<desc>Karakter anda mundur 2 langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>21</ActionID>
+		<name>Aji Qulhu Geni</name>
+		<desc>Karakter anda mundur 2 langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>22</ActionID>
+		<name>Aji Inti Lebur Sakheti</name>
+		<desc>Buang 1 kartu dari tangan secara acak</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>22</ActionID>
+		<name>Aji Inti Lebur Sakheti</name>
+		<desc>Buang 1 kartu dari tangan secara acak</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>21</ActionID>
+		<name>Aji Qulhu Geni</name>
+		<desc>Karakter anda mundur 2 langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>23</ActionID>
+		<name>Aji Rajah Kalachakra</name>
+		<desc>Karakter berhenti 1 putaran</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>23</ActionID>
+		<name>Aji Rajah Kalachakra</name>
+		<desc>Karakter berhenti 1 putaran</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>23</ActionID>
+		<name>Aji Rajah Kalachakra</name>
+		<desc>Karakter berhenti 1 putaran</desc>
+		<power>1</power>
+	</card>
+</deck>
