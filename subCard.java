@@ -61,6 +61,7 @@ class TrapSetCard extends Card{
 	public void PlayCard(){
 		System.out.println("Played: " + this);
 		System.out.println("Satu petak di belakang anda menjadi petak perangkap");
+		Game.getBoard().setTrap(Game.getPlayers().get(Game.getCurrentPlayerIdx()).getPosition()-1);
 	}
 }
 

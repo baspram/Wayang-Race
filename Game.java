@@ -138,6 +138,7 @@ public class Game{
 	public static void TrapTriggered(){
 		System.out.println("Pemain terkena jebakan");
 		TrapDeck.PlayTopDeck();
+		GameBoard.unsetTrap(Players.get(CurrentPlayer).getPosition());
 	}
 	
 	public void Start(){
