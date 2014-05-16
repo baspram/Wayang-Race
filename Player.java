@@ -26,10 +26,8 @@ public class Player {
     private boolean PlayedCard;
 	/* Could player move */
     private boolean Advanced;
-        /*Action used */
+    /*Action used */
     protected boolean actionUsed;
-	/* Total number of tiles on the block */
-    private final int NBLOCK = 42;
 	/* Imunity of player */
     protected boolean imunity;
     /* Player's recharge */
@@ -131,8 +129,8 @@ public class Player {
     /* Player advance on the map as many as the dice rolled */
     public void Advance(int diceNum){
 		position += diceNum;
-		if(position>=NBLOCK){
-			position -=NBLOCK;
+		while(position>=Board.getNBlock()){
+			position -=Board.getNBlock();
 			currentLap++;
 		}
 		Advanced = true;
@@ -150,6 +148,14 @@ public class Player {
                 }
             }
 	}
+	
+	public void Boost(int power){
+		position +=power;
+		if(position>=Board.getNBlock()){
+			position-=Board.getNBlock();
+		}
+	}
+			
     
     /* Player use one of his card */
     public void PlayCard(){
@@ -184,9 +190,9 @@ public class Player {
 	}
     
 	/* Initalize Lap */
-    public void StartLap(Deck D){
+    public void StartLap(){
 		hand.DiscardAll();
-		hand.DrawStart(D);
+		hand.DrawStart();
 	}
    
     public void useAction(){

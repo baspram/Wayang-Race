@@ -11,7 +11,7 @@ public class Board {
 	//Constant
 	private final int BOARDX = 12;
 	private final int BOARDY = 7;
-	private final int NBLOCK = 42; 
+	private static final int NBLOCK = 42; 
 	private final String CLEARCELL = "99";
 	private final String TRAPCELL = "88";
 	private final String boardfilename = "circuit.xml";
@@ -42,6 +42,11 @@ public class Board {
 			cell[0][0].setPlayersIn(in.toString());
 		}
 	}
+	
+	//getter NBlock
+		public static int getNBlock(){
+			return NBLOCK;
+		}
 	
 	// Scan dari file eksternal, membuat jalan
 	public boolean initRoad()

@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Game{
 	private static ArrayList<Player> Players;
-	private Deck ActionDeck;
+	private static Deck ActionDeck;
 	private static Deck TrapDeck;
 	private static Board GameBoard;
 	private static DiscardPile DumpPile;
@@ -49,6 +49,9 @@ public class Game{
 	public static Player getCurrentPlayer(){
 		return Players.get(CurrentPlayer);
 	}
+	public static Deck getActionDeck(){
+		return ActionDeck;
+	}
 	public static void Finish(){
 		GameFinish = true;
 	}
@@ -62,7 +65,7 @@ public class Game{
 		catch(Exception e){}
 		ActionDeck.Shuffle();
 		for(int i=1;i<Players.size();i++){
-			Players.get(i).StartLap(ActionDeck);
+			Players.get(i).StartLap();
 		}
 	}
 	
