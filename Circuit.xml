@@ -2,22 +2,32 @@
 	<tile>
 		<CellNum>1</CellNum>
 		<CellP>0</CellP>
+		<x>74</x>
+		<y>146</y>
 	</tile>
 	<tile>
 		<CellNum>2</CellNum>
 		<CellP>0</CellP>
+		<x>147</x>
+		<y>146</y>
 	</tile>
 	<tile>
 		<CellNum>3</CellNum>
 		<CellP>0</CellP>
+		<x>220</x>
+		<y>146</y>
 	</tile>
 	<tile>
 		<CellNum>4</CellNum>
 		<CellP>88</CellP>
+		<x>293</x>
+		<y>146</y>
 	</tile>
 	<tile>
 		<CellNum>5</CellNum>
 		<CellP>0</CellP>
+		<x>366</x>
+		<y>146</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -30,26 +40,38 @@
 	<tile>
 		<CellNum>12</CellNum>
 		<CellP>0</CellP>
+		<x>585</x>
+		<y>146</y>
 	</tile>
 	<tile>
 		<CellNum>13</CellNum>
 		<CellP>0</CellP>
+		<x>658</x>
+		<y>146</y>
 	</tile>
 	<tile>
 		<CellNum>14</CellNum>
 		<CellP>0</CellP>
+		<x>731</x>
+		<y>146</y>
 	</tile>
 	<tile>
 		<CellNum>15</CellNum>
 		<CellP>0</CellP>
+		<x>804</x>
+		<y>146</y>
 	</tile>
 	<tile>
 		<CellNum>16</CellNum>
 		<CellP>0</CellP>
+		<x>877</x>
+		<y>146</y>
 	</tile>
 	<tile>
 		<CellNum>0</CellNum>
 		<CellP>0</CellP>
+		<x>74</x>
+		<y>219</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -66,6 +88,8 @@
 	<tile>
 		<CellNum>6</CellNum>
 		<CellP>0</CellP>
+		<x>366</x>
+		<y>219</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -78,6 +102,8 @@
 	<tile>
 		<CellNum>11</CellNum>
 		<CellP>0</CellP>
+		<x>585</x>
+		<y>219</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -94,10 +120,14 @@
 	<tile>
 		<CellNum>17</CellNum>
 		<CellP>0</CellP>
+		<x>877</x>
+		<y>219</y>
 	</tile>
 	<tile>
 		<CellNum>41</CellNum>
 		<CellP>0</CellP>
+		<x>74</x>
+		<y>292</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -114,18 +144,26 @@
 	<tile>
 		<CellNum>7</CellNum>
 		<CellP>0</CellP>
+		<x>366</x>
+		<y>292</y>
 	</tile>
 	<tile>
 		<CellNum>8</CellNum>
 		<CellP>0</CellP>
+		<x>439</x>
+		<y>292</y>
 	</tile>
 	<tile>
 		<CellNum>9</CellNum>
 		<CellP>0</CellP>
+		<x>512</x>
+		<y>292</y>
 	</tile>
 	<tile>
 		<CellNum>10</CellNum>
 		<CellP>0</CellP>
+		<x>585</x>
+		<y>292</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -142,10 +180,14 @@
 	<tile>
 		<CellNum>18</CellNum>
 		<CellP>0</CellP>
+		<x>877</x>
+		<y>292</y>
 	</tile>
 	<tile>
 		<CellNum>40</CellNum>
 		<CellP>0</CellP>
+		<x>74</x>
+		<y>365</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -190,10 +232,14 @@
 	<tile>
 		<CellNum>19</CellNum>
 		<CellP>0</CellP>
+		<x>877</x>
+		<y>365</y>
 	</tile>
 	<tile>
 		<CellNum>39</CellNum>
 		<CellP>88</CellP>
+		<x>74</x>
+		<y>438</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -210,18 +256,26 @@
 	<tile>
 		<CellNum>31</CellNum>
 		<CellP>0</CellP>
+		<x>366</x>
+		<y>438</y>
 	</tile>
 	<tile>
 		<CellNum>30</CellNum>
 		<CellP>0</CellP>
+		<x>439</x>
+		<y>438</y>
 	</tile>
 	<tile>
 		<CellNum>29</CellNum>
 		<CellP>0</CellP>
+		<x>512</x>
+		<y>438</y>
 	</tile>
 	<tile>
 		<CellNum>28</CellNum>
 		<CellP>0</CellP>
+		<x>585</x>
+		<y>438</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -238,10 +292,14 @@
 	<tile>
 		<CellNum>20</CellNum>
 		<CellP>88</CellP>
+		<x>877</x>
+		<y>438</y>
 	</tile>
 	<tile>
 		<CellNum>38</CellNum>
 		<CellP>0</CellP>
+		<x>74</x>
+		<y>511</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -258,6 +316,8 @@
 	<tile>
 		<CellNum>32</CellNum>
 		<CellP>0</CellP>
+		<x>366</x>
+		<y>511</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -270,6 +330,8 @@
 	<tile>
 		<CellNum>27</CellNum>
 		<CellP>0</CellP>
+		<x>585</x>
+		<y>511</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -286,26 +348,38 @@
 	<tile>
 		<CellNum>21</CellNum>
 		<CellP>0</CellP>
+		<x>877</x>
+		<y>511</y>
 	</tile>
 	<tile>
 		<CellNum>37</CellNum>
 		<CellP>0</CellP>
+		<x>74</x>
+		<y>584</y>
 	</tile>
 	<tile>
 		<CellNum>36</CellNum>
 		<CellP>0</CellP>
+		<x>147</x>
+		<y>584</y>
 	</tile>
 	<tile>
 		<CellNum>35</CellNum>
 		<CellP>0</CellP>
+		<x>220</x>
+		<y>584</y>
 	</tile>
 	<tile>
 		<CellNum>34</CellNum>
 		<CellP>88</CellP>
+		<x>293</x>
+		<y>584</y>
 	</tile>
 	<tile>
 		<CellNum>33</CellNum>
 		<CellP>0</CellP>
+		<x>366</x>
+		<y>584</y>
 	</tile>
 	<tile>
 		<CellNum>99</CellNum>
@@ -318,22 +392,32 @@
 	<tile>
 		<CellNum>26</CellNum>
 		<CellP>0</CellP>
+		<x>585</x>
+		<y>584</y>
 	</tile>
 	<tile>
 		<CellNum>25</CellNum>
 		<CellP>0</CellP>
+		<x>658</x>
+		<y>584</y>
 	</tile>
 	<tile>
 		<CellNum>24</CellNum>
 		<CellP>0</CellP>
+		<x>731</x>
+		<y>584</y>
 	</tile>
 	<tile>
 		<CellNum>23</CellNum>
 		<CellP>0</CellP>
+		<x>804</x>
+		<y>584</y>
 	</tile>
 	<tile>
 		<CellNum>22</CellNum>
 		<CellP>0</CellP>
+		<x>877</x>
+		<y>584</y>
 	</tile>
 	
 </circuit>

@@ -1,4 +1,14 @@
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 public class Cell {
+	//Window
+	ImageIcon cellIcon;
+	JLabel cellTile;
+	private final int tileSize = 73;
+	private final String normalTile = "images/normal.jpg";
+	private final String trapTile = "images/trap.jpg";
 	//Atribut
 	private String playersIn;
 	private String cellNo;
@@ -12,8 +22,25 @@ public class Cell {
 	//konstruktor
 	public Cell()
 	{
+		//normal
 		cellNo = clearCell;
 		playersIn = clearCell;
+		cellTile = new JLabel();
+	}
+	
+	// window setTilePosition
+	public void setTilePosition(int x, int y)
+	{
+		System.out.println("setlocation : " + x + " " + y);
+		cellTile.setLocation(x, y);
+		cellTile.setBounds(x,y,73,73);
+		cellTile.setVisible(true);
+	}
+	
+	// window gettile
+	public JLabel getTile()
+	{
+		return cellTile;
 	}
 	
 	// get nomor cell ini
@@ -67,10 +94,21 @@ public class Cell {
 	// menambahkan player P ke cell ini
 	public void setPlayersIn(String P)
 	{
+		//urusan player
 		if(playersIn.equals(clearCell) || playersIn.equals(noPlayerCell))
 			playersIn = P;
 		else if(!playersIn.contains(P))
 			playersIn = playersIn.concat(P);
+		
+		//window buat trap atau bukan
+		if(P.contains(trapCell))
+			cellIcon = new ImageIcon(ClassLoader.getSystemResource(trapTile));
+		else
+			cellIcon = new ImageIcon(ClassLoader.getSystemResource(normalTile));
+		cellTile.setIcon(cellIcon);
+		cellTile.setSize(tileSize,tileSize);
+		cellTile.setText("aaa");
+		cellTile.setVisible(true);
 	}
 	
 	// menghapus player P dari cell ini

@@ -1,13 +1,24 @@
 import java.util.*;
 import java.io.*;
+import java.awt.*;
+import java.io.*;
+import java.net.*;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
 public class Board {
+	//Window
+	JFrame boardWindow;
+	JPanel boardPanel;
+	private final String boardCoordName = "coord.txt";
 	//Constant
 	private final int BOARDX = 12;
 	private final int BOARDY = 7;
@@ -23,6 +34,7 @@ public class Board {
 	// Constructor
 	public Board()
 	{
+		initWindow();
 		cell = new Cell[BOARDY][BOARDX];
 		for(int i=0; i<BOARDY; i++)
 			for(int j=0; j<BOARDX; j++)
@@ -31,6 +43,7 @@ public class Board {
 	}
 	public Board(int Nplayer)
 	{
+		initWindow();
 		cell = new Cell[BOARDY][BOARDX];
 		for(int i=0; i<BOARDY; i++)
 			for(int j=0; j<BOARDX; j++)
@@ -43,16 +56,37 @@ public class Board {
 		}
 	}
 	
+	//inisialisasi window
+	public void initWindow()
+	{
+		boardPanel = new JPanel();
+		boardPanel.setLayout(null);
+		boardWindow = new JFrame();
+		boardWindow.setLocationRelativeTo(null);
+		
+		boardWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		boardWindow.setSize(1366,768);
+		boardWindow.setLocation(200,200);
+		boardWindow.getContentPane().add(boardPanel);
+		boardWindow.setVisible(true);
+	}
+	
 	// Scan dari file eksternal, membuat jalan
 	public boolean initRoad()
 	{
         try {
+        	//node
 			File file = new File(boardfilename);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(file);
 			doc.getDocumentElement().normalize();
 			NodeList nList = doc.getElementsByTagName("tile");
+			
+			//swing
+			File filec = new File(boardCoordName);
+			
+			//normal
 			int i=0; int j=0;
 			for (int temp = 0; temp < nList.getLength(); temp++){
 				Node nNode = nList.item(temp);
@@ -62,6 +96,21 @@ public class Board {
 					String CellP = eElement.getElementsByTagName("CellP").item(0).getTextContent();
 					cell[i][j].setCellNo(CellNum);
 					cell[i][j].setPlayersIn(CellP);
+					try
+					{
+						//urusan window
+						String xitem = eElement.getElementsByTagName("x").item(0).getTextContent();
+						String yitem = eElement.getElementsByTagName("y").item(0).getTextContent();
+						System.out.println("x: " + xitem + " y : " + yitem);
+						cell[i][j].setTilePosition(Integer.parseInt(xitem), Integer.parseInt(yitem));
+						boardPanel.add(cell[i][j].getTile());
+						//boardWindow.add(cell[i][j].getTile());
+						//boardWindow.setVisible(true);
+					}
+					catch(Throwable e)
+					{
+						System.out.println("empty");
+					}
 					j++;
 					if(j==12)
 					{
@@ -70,7 +119,8 @@ public class Board {
 					}
 				}
 			}
-			
+			boardWindow.pack();
+			boardWindow.setSize(1366,768);
         } catch (Exception e) {
         	return false;
         }
@@ -80,7 +130,7 @@ public class Board {
 	// menggambarkan board ke layar
 	public void drawBoard()
 	{
-		
+		boardWindow.setVisible(true);
 		if(initialized)
 		{
 			for(int i=0 ; i<BOARDY ; i++)
