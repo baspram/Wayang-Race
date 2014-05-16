@@ -22,7 +22,11 @@ public class Werkudara extends Player{
         if(rechargeTime>=3 && !actionUsed){
             //playerTarget dengan position tersebut diundur sebanyak 4 langkah kecuali sampai start
             int playerTarget = SelectTarget();
+           	int targettilestatus = Game.getBoard().move(Game.getPlayers().get(playerTarget), playerTarget, -4);
             Game.getPlayers().get(playerTarget).Attacked(4);
+            if(targettilestatus==88){
+				Game.TrapTriggered(Game.getCurrentPlayerIdx());
+			}
             rechargeTime = 0;
             actionUsed = true;
             System.out.println("Aksi berhasil dilakukan! Pemain ke-" + playerTarget + " mundur sebanyak 4 langkah");
