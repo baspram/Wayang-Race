@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<deck>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Aji Lembu Sekilan</name>
+		<desc>Karakter Anda Maju 2 Langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Aji Lembu Sekilan</name>
+		<desc>Karakter Anda Maju 2 Langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Aji Lembu Sekilan</name>
+		<desc>Karakter Anda Maju 2 Langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Aji Segoro Macan</name>
+		<desc>Karakter Anda Maju 3 Langkah</desc>
+		<power>3</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Aji Segoro Macan</name>
+		<desc>Karakter Anda Maju 3 Langkah</desc>
+		<power>3</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Aji Macan Putih</name>
+		<desc>Karakter anda maju 5 langkah</desc>
+		<power>5</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Aji Brajamusti</name>
+		<desc>Pemain Target Mundur 2 langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Aji Brajamusti</name>
+		<desc>Pemain Target Mundur 2 langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Aji Brajamusti</name>
+		<desc>Pemain Target Mundur 2 langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Aji Pancasona</name>
+		<desc>Pemain Target Mundur 3 langkah</desc>
+		<power>3</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Aji Pancasona</name>
+		<desc>Pemain Target Mundur 3 langkah</desc>
+		<power>3</power>
+	</card>
+	<card>
+		<ActionID>3</ActionID>
+		<name>Aji Sirep</name>
+		<desc>Pemain Target tidak melakukan aksi apapun untuk putaran berikutnya</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>3</ActionID>
+		<name>Aji Sirep</name>
+		<desc>Pemain Target tidak melakukan aksi apapun untuk putaran berikutnya</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>3</ActionID>
+		<name>Aji Sirep</name>
+		<desc>Pemain Target tidak melakukan aksi apapun untuk putaran berikutnya</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>3</ActionID>
+		<name>Aji Gelap Sayuta</name>
+		<desc>Pemain Target tidak melakukan aksi apapun untuk 2 putaran berikutnya</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>4</ActionID>
+		<name>Aji Komara Geni</name>
+		<desc>Menjadikan satu petak dibelakang menjadi petak perangkap</desc>
+		<power>0</power>
+	</card>
+	<card>
+		<ActionID>4</ActionID>
+		<name>Aji Komara Geni</name>
+		<desc>Menjadikan satu petak dibelakang menjadi petak perangkap</desc>
+		<power>0</power>
+	</card>
+	<card>
+		<ActionID>4</ActionID>
+		<name>Aji Komara Geni</name>
+		<desc>Menjadikan satu petak dibelakang menjadi petak perangkap</desc>
+		<power>0</power>
+	</card>
+	<card>
+		<ActionID>4</ActionID>
+		<name>Aji Komara Geni</name>
+		<desc>Menjadikan satu petak dibelakang menjadi petak perangkap</desc>
+		<power>0</power>
+	</card>
+	<card>
+		<ActionID>5</ActionID>
+		<name>Aji Suket Kalajana</name>
+		<desc>Membuang satu kartu pemain target secara random</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>5</ActionID>
+		<name>Aji Suket Kalajana</name>
+		<desc>Membuang satu kartu pemain target secara random</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>5</ActionID>
+		<name>Aji Suket Kalajana</name>
+		<desc>Membuang satu kartu pemain target secara random</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Aji Lembu Sekilan</name>
+		<desc>Karakter Anda Maju 2 Langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Aji Lembu Sekilan</name>
+		<desc>Karakter Anda Maju 2 Langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Aji Lembu Sekilan</name>
+		<desc>Karakter Anda Maju 2 Langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Aji Segoro Macan</name>
+		<desc>Karakter Anda Maju 3 Langkah</desc>
+		<power>3</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Aji Segoro Macan</name>
+		<desc>Karakter Anda Maju 3 Langkah</desc>
+		<power>3</power>
+	</card>
+	<card>
+		<ActionID>1</ActionID>
+		<name>Aji Macan Putih</name>
+		<desc>Karakter anda maju 5 langkah</desc>
+		<power>5</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Aji Brajamusti</name>
+		<desc>Pemain Target Mundur 2 langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Aji Brajamusti</name>
+		<desc>Pemain Target Mundur 2 langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Aji Brajamusti</name>
+		<desc>Pemain Target Mundur 2 langkah</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Aji Pancasona</name>
+		<desc>Pemain Target Mundur 3 langkah</desc>
+		<power>3</power>
+	</card>
+	<card>
+		<ActionID>2</ActionID>
+		<name>Aji Pancasona</name>
+		<desc>Pemain Target Mundur 3 langkah</desc>
+		<power>3</power>
+	</card>
+	<card>
+		<ActionID>3</ActionID>
+		<name>Aji Sirep</name>
+		<desc>Pemain Target tidak melakukan aksi apapun untuk putaran berikutnya</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>3</ActionID>
+		<name>Aji Sirep</name>
+		<desc>Pemain Target tidak melakukan aksi apapun untuk putaran berikutnya</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>3</ActionID>
+		<name>Aji Sirep</name>
+		<desc>Pemain Target tidak melakukan aksi apapun untuk putaran berikutnya</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>3</ActionID>
+		<name>Aji Gelap Sayuta</name>
+		<desc>Pemain Target tidak melakukan aksi apapun untuk 2 putaran berikutnya</desc>
+		<power>2</power>
+	</card>
+	<card>
+		<ActionID>4</ActionID>
+		<name>Aji Komara Geni</name>
+		<desc>Menjadikan satu petak dibelakang menjadi petak perangkap</desc>
+		<power>0</power>
+	</card>
+	<card>
+		<ActionID>4</ActionID>
+		<name>Aji Komara Geni</name>
+		<desc>Menjadikan satu petak dibelakang menjadi petak perangkap</desc>
+		<power>0</power>
+	</card>
+	<card>
+		<ActionID>4</ActionID>
+		<name>Aji Komara Geni</name>
+		<desc>Menjadikan satu petak dibelakang menjadi petak perangkap</desc>
+		<power>0</power>
+	</card>
+	<card>
+		<ActionID>4</ActionID>
+		<name>Aji Komara Geni</name>
+		<desc>Menjadikan satu petak dibelakang menjadi petak perangkap</desc>
+		<power>0</power>
+	</card>
+	<card>
+		<ActionID>5</ActionID>
+		<name>Aji Suket Kalajana</name>
+		<desc>Membuang satu kartu pemain target secara random</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>5</ActionID>
+		<name>Aji Suket Kalajana</name>
+		<desc>Membuang satu kartu pemain target secara random</desc>
+		<power>1</power>
+	</card>
+	<card>
+		<ActionID>5</ActionID>
+		<name>Aji Suket Kalajana</name>
+		<desc>Membuang satu kartu pemain target secara random</desc>
+		<power>1</power>
+	</card>
+</deck>
