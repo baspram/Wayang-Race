@@ -26,4 +26,11 @@ public class DiscardPile{
 		}
 		return temp;
 	}
+	
+	public Card getTop()
+	{
+		Card a = P.peek();
+		P.pop();
+		return a;
+	}
 }

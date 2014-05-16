@@ -17,9 +17,9 @@ public class Hand{
 		return H.size();
 	}
 	
-	public void DrawStart(Deck _deck){
+	public void DrawStart(){
 		for(int i=0;i<HandSize;i++){
-			Draw(_deck.Drawn());
+			Draw(Game.getActionDeck().Drawn());
 		}
 	}
 		
