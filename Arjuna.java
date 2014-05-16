@@ -11,6 +11,9 @@
 /* Arjuna is one of WayangRace characters */
 public class Arjuna extends Player{
     /* Arjuna's description */
+    public Arjuna(){
+        id = 1;
+    }
     final String description = "Panah Pasopati";
     
     /* Action of arjuna */

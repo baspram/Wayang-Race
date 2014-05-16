@@ -9,7 +9,7 @@ public class Game{
 	private static DiscardPile DumpPile;
 	private static int CurrentPlayer;
 	private final int DiceSide = 12;
-	private static final int ReqLap = 3;
+	private static boolean GameFinish;
 	
 	Game(int Nplayer){
 		ActionDeck = new Deck();
@@ -17,15 +17,23 @@ public class Game{
 		GameBoard = new Board(Nplayer);
 		DumpPile = new DiscardPile();
 		Players = new ArrayList<Player>();
+        PlayerFactory Factory = new PlayerFactory();
 		Players.add(new Player()); //untuk menutup indeks player ke 0
 		for(int i=1;i<=Nplayer;i++){
-			Player playerin = new Player();
+			Player playerin = Factory.getRole(SelectTarget());
 			Players.add(playerin);
 		}
 		CurrentPlayer=1;
 		Initialization();
 	}
 	
+    public String SelectTarget(){
+		Scanner targetin = new Scanner(System.in);
+		System.out.println("Choose Role: ");
+		System.out.println("(Arjuna/Nakula/Sadewa/Werkudara/Yudhistira)");
+		return targetin.next();
+    }   
+        
 	public static DiscardPile getDP(){
 		return DumpPile;
 	}
@@ -41,8 +49,8 @@ public class Game{
 	public static Player getCurrentPlayer(){
 		return Players.get(CurrentPlayer);
 	}
-	public static int getReqLap(){
-		return ReqLap;
+	public static void Finish(){
+		GameFinish = true;
 	}
 	
 	public void Initialization(){
@@ -53,7 +61,6 @@ public class Game{
 		}
 		catch(Exception e){}
 		ActionDeck.Shuffle();
-		TrapDeck.Shuffle();
 		for(int i=1;i<Players.size();i++){
 			Players.get(i).StartLap(ActionDeck);
 		}
@@ -87,24 +94,32 @@ public class Game{
 			else{
 				System.out.println("");
 			}
-			System.out.println("3) Pakai Aksi Khusus");
-			System.out.println("4) Akhiri Giliran");
+			
+            System.out.println("3) Aksi Khusus");
+			System.out.println("4) Cek Status");
+			System.out.println("5) Akhiri Giliran");
 			System.out.println("");
 			System.out.println("Kartu di tangan: ");
 			Players.get(CurrentPlayer).getHand().DisplayHand();
 			System.out.println("\nPilihan Aksi: ");
 			opt = Option.nextInt();
 			switch(opt){
-				case 1: movement = 1+Dice.nextInt(DiceSide);
-						targettilestatus = GameBoard.move(Players.get(CurrentPlayer), CurrentPlayer, movement);
-						if(targettilestatus==88){
-							TrapTriggered();
+				case 1: if(Players.get(CurrentPlayer).CanAdvance()){
+							movement = 1+Dice.nextInt(DiceSide);
+							targettilestatus = GameBoard.move(Players.get(CurrentPlayer), CurrentPlayer, movement);
+							Players.get(CurrentPlayer).Advance(movement);
+							if(targettilestatus==88){
+								TrapTriggered();
+							}
 						}
-						Players.get(CurrentPlayer).Advance(movement);
+						else{
+							System.out.println("Anda telah maju dari kocokan dadu putaran ini atau sedang terkena stop");
+						}
 						break;
 				case 2: Players.get(CurrentPlayer).PlayCard(); break;
 				case 3: Players.get(CurrentPlayer).useAction(); break;
-				case 4: Players.get(CurrentPlayer).EndTurn();
+				case 4: System.out.println("Status: blablabla"); break;
+				case 5: Players.get(CurrentPlayer).EndTurn();
 						if(CurrentPlayer<Players.size()-1){
 							CurrentPlayer++;
 							}
@@ -113,25 +128,23 @@ public class Game{
 							}
 						Players.get(CurrentPlayer).StartTurn(); 
 						break;
-				default: System.out.println("input tidak valid"); break;
+                default: System.out.println("input tidak valid"); break;
 			}
 			System.out.println(""); 
 		}
 	}
+	
 	
 	public static void TrapTriggered(){
 		System.out.println("Pemain terkena jebakan");
 		TrapDeck.PlayTopDeck();
 	}
 	
-	public static void finish(){
-	}
-	
 	public void Start(){
-		boolean finish = false;
-		while(!finish){
+		GameFinish=false;
+		while(!GameFinish){
 			Turn();
 		}
+		System.out.println("\n\n\nPermainan selesai");
 	}
-	
 }

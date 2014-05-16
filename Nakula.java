@@ -9,7 +9,10 @@
  * @author Ahmad
  */
 public class Nakula extends Player{
-     /* Nakula's description */
+    public Nakula(){
+        id = 2;
+    } 
+    /* Nakula's description */
     final String description = "Pranawajati";
     
     /* Action of werkudara */

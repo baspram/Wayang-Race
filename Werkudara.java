@@ -9,6 +9,9 @@
  * @author Ahmad
  */
 public class Werkudara extends Player{
+    public Werkudara(){
+        id = 4;
+    }
      /* Werkudara's description */
     final String description = "Kuku pancanaka";
     /* Action of werkudara */

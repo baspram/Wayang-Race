@@ -11,10 +11,11 @@ import java.util.*;
  * @author Ahmad
  */
 /* Base class for every roles in the game */
-
 public class Player {
     /* Current player's cards */
     private Hand hand;
+    /* Player's Role; 1 = Arjuna; 2 = Nakula; 3 = Sadewa; 4 = Werkudara; 5 = Yudhistira */
+    protected int id;
     /* Player's position on the map */
     private int position;
     /* Player's suspended times */
@@ -47,10 +48,14 @@ public class Player {
 	rechargeTime = 0;
         diceRolled = 0;
         actionUsed = false;
+        id = 0;
     }
     /* Player's getter */
     public int getPosition(){
         return position;
+    }
+    public int getID(){
+        return id;
     }
     public int getStop(){
         return stop;
@@ -70,12 +75,31 @@ public class Player {
     public boolean hasPlayedACard(){
             return PlayedCard;
     }
-    public void setPosition(int target){
-		position = target;
-	}
 	/* Print player's condition */
     public String toString(){
-		String S = "Role: " + "\nPutaran: " + currentLap + "\nPosisi: " + position;
+		String role;
+                if(id == 1){
+                    role = "Arjuna";
+                }
+                else{
+                    if(id == 2){
+                        role = "Nakula";
+                    }
+                    else{
+                        if(id==3){
+                            role = "Sadewa";
+                        }
+                        else{
+                            if(id==4){
+                                role = "Werkudara";
+                            }
+                            else{
+                                role = "Yudhistira";
+                            }
+                        }
+                    }
+                }
+                String S = "Role: " + role + "\nPutaran: " + currentLap + "\nPosisi: " + position;
 		return S;
 	}
     
@@ -100,31 +124,30 @@ public class Player {
     		System.out.println("Choose Card: ");
 		return targetin.nextInt();
     }
+    
+    public boolean CanAdvance(){
+		return !Advanced&& stop==0;
+	}
     /* Player advance on the map as many as the dice rolled */
     public void Advance(int diceNum){
-		if(!Advanced&& stop==0){
-			position += diceNum;
-			if(position>=NBLOCK){
-				position -=NBLOCK;
-				currentLap++;
-			}
-			Advanced = true;
-                        if(currentLap > Game.getReqLap()){
-                            Game.finish();
-                        }
+		position += diceNum;
+		if(position>=NBLOCK){
+			position -=NBLOCK;
+			currentLap++;
 		}
-		else{
-			System.out.println("Anda telah maju dari kocokan dadu putaran ini atau sedang terkena stop");
+		Advanced = true;
+                       /*if(currentLap > Game.getReqLap()){
+                            //assert(1==2)
+                        }*/
 		}
-    }
     
 	/* Change the position of player because damaged */
     public void Attacked(int damage){
             if(!imunity){
-                    position -= damage;
-                    if(position<0){
-                            position = 1;
-                    }
+				position -= damage;
+                if(position<0){
+                    position = 1;
+                }
             }
 	}
     

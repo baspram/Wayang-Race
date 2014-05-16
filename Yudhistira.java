@@ -9,7 +9,10 @@
  * @author Ahmad
  */
 public class Yudhistira extends Player{
-     /* Yudhistiraa's description */
+    public Yudhistira(){
+        id = 5;
+    }
+    /* Yudhistiraa's description */
     final String description = "Adityarhedaya";
     
     /* Action of yudhistira */

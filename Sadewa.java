@@ -9,6 +9,9 @@ import java.util.*;
  * @author Ahmad
  */
 public class Sadewa extends Player{
+    public Sadewa(){
+        id = 3;
+    }
      /* Werkudara's description */
     final String description = "Sadewah";
     
