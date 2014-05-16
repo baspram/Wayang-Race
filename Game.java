@@ -76,6 +76,7 @@ public class Game{
 		}
 		catch(Exception e){}
 		ActionDeck.Shuffle();
+                TrapDeck.Shuffle();
 		for(int i=1;i<Players.size();i++){
 			Players.get(i).StartLap();
 		}
