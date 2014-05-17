@@ -8,6 +8,11 @@ class mDeck{
 		}
 		catch(Exception e){}
 		D.Shuffle();
-		D.DisplayDeckContent();
+		int n = D.Ndeck();
+		for(int i=1;i<=n+5;i++){
+			Card C = D.Drawn();
+			System.out.println(C);
+			C.Discard();
+		}
 	}
 }
