@@ -18,11 +18,11 @@ public class DiscardPile{
 	public ArrayDeque<Card> Export(){
 		ArrayDeque<Card> temp = new ArrayDeque<Card>();
 		Card hapus = new Card();
-		temp = P;
 		while(!P.isEmpty())
 		{
 			hapus = P.peek();
 			P.pop();
+			temp.push(hapus);
 		}
 		return temp;
 	}

@@ -128,36 +128,39 @@ public class Player {
 	}
     /* Player advance on the map as many as the dice rolled */
     public void Advance(int diceNum){
-		Random Dice = new Random();
-                position += diceNum;
+		position += diceNum;
 		while(position>=Board.getNBlock()){
-			position -=Board.getNBlock();
+			position %= Board.getNBlock();
 			currentLap++;
-                        StartLap();
+			StartLap();		
 		}
-                diceRolled = diceNum;
+        diceRolled = diceNum;
 		Advanced = true;
                 if(currentLap > Game.getLapNumber()){
+                    System.out.println("Balapan ini dimenangkan oleh: " + this);
                     Game.Finish();
                 }
     }
     
 	/* Change the position of player because damaged */
     public void Attacked(int damage){
+            if(position==0||position==42){
+				return;
+			}
             if(!imunity){
-				position -= damage;
-                if(position<1){
-                    position = 1;
-                }
-            }
-	}
+					position -= damage;
+					if(position<1){
+						position = 1;
+					}
+				}
+			}
 	
 	public void Boost(int power){
 		position +=power;
-		if(position>=Board.getNBlock()){
-			position-=Board.getNBlock();
-                        currentLap++;
-                        StartLap();
+		while(position>=Board.getNBlock()){
+			position %= Board.getNBlock();
+			currentLap++;
+			StartLap();	
 		}
 	}
 			

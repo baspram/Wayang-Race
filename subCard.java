@@ -13,7 +13,8 @@ class AttackCard extends Card{
 		int targetpl = SelectTarget();
 		System.out.println("Played: " + this);
 		System.out.println("Player: " + targetpl + " mundur " + damage + " langkah");
-		int targettilestatus = Game.getBoard().move(Game.getPlayers().get(targetpl), targetpl, damage*-1);
+		int targettilestatus;
+		targettilestatus = Game.getBoard().move(Game.getPlayers().get(targetpl), targetpl, damage*-1);
 		Game.getPlayers().get(targetpl).Attacked(damage);
 		if(targettilestatus==88){
 			Game.TrapTriggered(targetpl);
@@ -23,7 +24,8 @@ class AttackCard extends Card{
 	public void PlayCard(int target){
 		System.out.println("Played: " + this);
 		System.out.println("Player: " + target + " mundur " + damage + " langkah");
-		int targettilestatus = Game.getBoard().move(Game.getPlayers().get(target), target, damage*-1);
+		int targettilestatus;
+		targettilestatus = Game.getBoard().move(Game.getPlayers().get(target), target, damage*-1);
 		Game.getPlayers().get(target).Attacked(damage);
 		if(targettilestatus==88){
 			Game.TrapTriggered(target);
