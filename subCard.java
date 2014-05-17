@@ -103,7 +103,12 @@ class TrapSetCard extends Card{
 		System.out.println("Played: " + this);
 		System.out.println("Satu petak di belakang anda menjadi petak perangkap");
 		if(!Game.getPlayers().get(Game.getCurrentPlayerIdx()).getImun()){
-                    Game.getBoard().setTrap(Game.getPlayers().get(Game.getCurrentPlayerIdx()).getPosition()-1);
+                    if(Game.getPlayers().get(Game.getCurrentPlayerIdx()).getPosition()==0){
+                        Game.getBoard().setTrap(41);
+                    }
+                    else{
+                        Game.getBoard().setTrap(Game.getPlayers().get(Game.getCurrentPlayerIdx()).getPosition()-1);
+                    }
                 }
 	}
 }
