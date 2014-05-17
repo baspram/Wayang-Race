@@ -9,8 +9,12 @@ public class Hand{
 	}
 	
 	public void Draw(Card CardDrawn){
-		H.add(CardDrawn);
-		//System.out.println("Card Drawn: " + CardDrawn);
+		if(H.size()<7){
+                    H.add(CardDrawn);
+                }
+                else{
+                    System.out.println("Jumlah kartu ditangan telah maksimal");
+                }
 	}
 	
 	public int getSize(){
