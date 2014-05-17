@@ -17,6 +17,10 @@ public class Arjuna extends Player{
     final String description = "Panah Pasopati: Arjuna dapat memberhentikan jalan pemain lawan sebanyak satu kali\n"
             + "Kekuatan dapat dilakukan tiap dadu yang dikocok menunjukan angka satu";
     
+    public boolean isAction(){
+        return getDiceRolled() == 1 && !actionUsed;
+    }
+    
     /* Action of arjuna */
     public void useAction(){
         //Lalala put your code's here 

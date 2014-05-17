@@ -40,10 +40,24 @@ public class Game{
         }
 
         public String SelectTarget(){
-                    Scanner targetin = new Scanner(System.in);
+                Scanner targetin = new Scanner(System.in);
+                String s;
+                int i = 0;
+                do{
+                    if(i>0){
+                        System.out.println("Ulangi pilihan role");
+                    }
                     System.out.println("Choose Role: ");
                     System.out.println("(Arjuna/Nakula/Sadewa/Werkudara/Yudhistira)");
-                    return targetin.next();
+                    s = targetin.next();
+                    i++;
+                    if(s.equalsIgnoreCase("Arjuna") || s.equalsIgnoreCase("nakula") ||
+                       s.equalsIgnoreCase("sadewa") || s.equalsIgnoreCase("werkudara") ||
+                        s.equalsIgnoreCase("yudhistira")){
+                        break;
+                    }
+                }while(i>0);
+                return s;
         }   
 
 	public static DiscardPile getDP(){
@@ -86,6 +100,8 @@ public class Game{
 		int opt=0;
 		int targettilestatus;
 		int movement;
+		boolean switchplayer=true;
+		BufferedReader Buff = new BufferedReader(new InputStreamReader(System.in));
 		Scanner Option = new Scanner(System.in);
                 Random Dice = new Random();
 		Players.get(CurrentPlayer).StartTurn();
@@ -110,42 +126,58 @@ public class Game{
 			else{
 				System.out.println("");
 			}
-                        System.out.println("3) Aksi Khusus");
+                        System.out.print("3) Aksi Khusus");
+                        if(Players.get(CurrentPlayer).isAction()){
+                            System.out.println("(Aksi bisa dilakukan!)");
+                        }
+                        else{
+                            System.out.println("(Tidak bisa melakukan aksi)");
+                        }
 			System.out.println("4) Cek Status");
 			System.out.println("5) Akhiri Giliran");
 			System.out.println("");
 			System.out.println("Kartu di tangan: ");
-			Players.get(CurrentPlayer).getHand().DisplayHand();
-			System.out.println("\nPilihan Aksi: ");
-			opt = Option.nextInt();
-			switch(opt){
-				case 1: if(Players.get(CurrentPlayer).CanAdvance()){
-							movement = 1+Dice.nextInt(DiceSide);
-							targettilestatus = GameBoard.move(Players.get(CurrentPlayer), CurrentPlayer, movement);
-							Players.get(CurrentPlayer).Advance(movement);
-							if(targettilestatus==88){
-								TrapTriggered(CurrentPlayer);
-							}
-						}
-						else{
-							System.out.println("Anda telah maju dari kocokan dadu putaran ini atau sedang terkena stop");
-						}
-						break;
-				case 2: Players.get(CurrentPlayer).PlayCard(); break;
-				case 3: Players.get(CurrentPlayer).useAction(); break;
-				case 4: printStatus(); break;
-				case 5: Players.get(CurrentPlayer).EndTurn();
-						if(CurrentPlayer<Players.size()-1){
-							CurrentPlayer++;
-							}
-						else{
-							CurrentPlayer=1;
-							}
-						Players.get(CurrentPlayer).StartTurn(); 
-						break;
-                default: System.out.println("input tidak valid"); break;
+			if(switchplayer){
+				System.out.println("Giliran pemain " + CurrentPlayer + ", tekan enter untuk memulai giliran");
+				try{String line = Buff.readLine();}
+				catch(Exception e){}
+				switchplayer=false;					
 			}
+			else
+			{
+				Players.get(CurrentPlayer).getHand().DisplayHand();
+				System.out.println("\nPilihan Aksi: ");
+				opt = Option.nextInt();
+				switch(opt){
+					case 1: if(Players.get(CurrentPlayer).CanAdvance()){
+								movement = 1+Dice.nextInt(DiceSide);
+								targettilestatus = GameBoard.move(Players.get(CurrentPlayer), CurrentPlayer, movement);
+								Players.get(CurrentPlayer).Advance(movement);
+								if(targettilestatus==88){
+									TrapTriggered(CurrentPlayer);
+								}
+							}
+							else{
+								System.out.println("Anda telah maju dari kocokan dadu putaran ini atau sedang terkena stop");
+							}
+							break;
+					case 2: Players.get(CurrentPlayer).PlayCard(); break;
+					case 3: Players.get(CurrentPlayer).useAction(); break;
+					case 4: printStatus(); break;
+					case 5: Players.get(CurrentPlayer).EndTurn();
+							switchplayer=true;
+							if(CurrentPlayer<Players.size()-1){
+								CurrentPlayer++;
+								}
+							else{
+								CurrentPlayer=1;
+								} 
+							Players.get(CurrentPlayer).StartTurn(); 
+							break;
+					default: System.out.println("input tidak valid"); break;
+				}
 			System.out.println(""); 
+			}
 		}
 	}
 	
@@ -160,6 +192,7 @@ public class Game{
 		while(!GameFinish){
 			Turn();
 		}
+		System.out.println("\n\nDimenangkan oleh pemain: " + CurrentPlayer);
 		System.out.println("\n\n\nPermainan selesai");
 	}
         

@@ -16,6 +16,10 @@ public class Yudhistira extends Player{
     final String description = "Adityarhedaya: Yudhistira dapat menjaga dirinya dari serangan sebanyak satu putaran\n"
             + "Kekuatan dapat dilakukan tiap 3 putaran atau lebih";
     
+     public boolean isAction(){
+        return rechargeTime >=4 && !actionUsed;
+    }
+    
     /* Action of yudhistira */
     public void useAction(){
         //Lalala put your code's here 

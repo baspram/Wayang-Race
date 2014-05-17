@@ -203,27 +203,34 @@ public class Board {
 	// memindahkan player nomor playernumber sebesar increment
 	public int move(Player pl, int playernumber, int increment)
 	{
-		Integer pn = new Integer(playernumber);
-		int posnow = pl.getPosition();
-		
-		//HAPUS di asal
-		Integer asal = new Integer(posnow);
-		int[] koordinat = getCellCoor(asal.toString());
-		cell[koordinat[0]][koordinat[1]].removePlayer(pn.toString());
-		
-		//LETAKKAN di tujuan
-		Integer tujuan = new Integer(0);
-		if(posnow + increment <= 0)
-			tujuan = new Integer(1);
-		else 
-			tujuan = new Integer((posnow + increment)%NBLOCK);
-		koordinat = getCellCoor(tujuan.toString());
-		cell[koordinat[0]][koordinat[1]].setPlayersIn(pn.toString());
-		String istrap = cell[koordinat[0]][koordinat[1]].getPlayersIn();
-		
-		if(istrap.contains(TRAPCELL))
-			return 88;
-		else return 1;
+		System.out.println(increment);
+		if((pl.getPosition()==1||pl.getPosition()==0||pl.getPosition()==42)&&increment<0){
+			System.out.println("Masuk move yang harusnya ga move");
+			return 0;
+		}
+		else{
+			Integer pn = new Integer(playernumber);
+			int posnow = pl.getPosition();
 			
+			//HAPUS di asal
+			Integer asal = new Integer(posnow);
+			int[] koordinat = getCellCoor(asal.toString());
+			cell[koordinat[0]][koordinat[1]].removePlayer(pn.toString());
+			
+			//LETAKKAN di tujuan
+			Integer tujuan = new Integer(0);
+			if(posnow + increment <= 0)
+				tujuan = new Integer(1);
+			else 
+				tujuan = new Integer((posnow + increment)%NBLOCK);
+			koordinat = getCellCoor(tujuan.toString());
+			cell[koordinat[0]][koordinat[1]].setPlayersIn(pn.toString());
+			String istrap = cell[koordinat[0]][koordinat[1]].getPlayersIn();
+			
+			if(istrap.contains(TRAPCELL))
+				return 88;
+			else return 1;
+		}
+				
 	}
 }

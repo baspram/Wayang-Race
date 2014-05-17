@@ -12,22 +12,34 @@ class AttackCard extends Card{
 	public void PlayCard(){
 		int targetpl = SelectTarget();
 		System.out.println("Played: " + this);
-		System.out.println("Player: " + targetpl + " mundur " + damage + " langkah");
-		int targettilestatus = Game.getBoard().move(Game.getPlayers().get(targetpl), targetpl, damage*-1);
-		Game.getPlayers().get(targetpl).Attacked(damage);
-		if(targettilestatus==88){
+                int targettilestatus =0;
+                if(!Game.getPlayers().get(targetpl).getImun()){
+                    System.out.println("Player: " + targetpl + " mundur " + damage + " langkah");                 
+                    targettilestatus = Game.getBoard().move(Game.getPlayers().get(targetpl), targetpl, damage*-1);
+                    Game.getPlayers().get(targetpl).Attacked(damage);
+                    if(targettilestatus==88){
 			Game.TrapTriggered(targetpl);
-		}
+                    }
+                }
+                else{
+                    System.out.println("Player " + targetpl + " terlindungi dari serangan");
+                }
 	}
 	
 	public void PlayCard(int target){
 		System.out.println("Played: " + this);
-		System.out.println("Player: " + target + " mundur " + damage + " langkah");
-		int targettilestatus = Game.getBoard().move(Game.getPlayers().get(target), target, damage*-1);
-		Game.getPlayers().get(target).Attacked(damage);
-		if(targettilestatus==88){
-			Game.TrapTriggered(target);
-		}
+		if(!Game.getPlayers().get(target).getImun()){
+                    System.out.println("Player: " + target + " mundur " + damage + " langkah");
+                    int targettilestatus;
+                    targettilestatus = Game.getBoard().move(Game.getPlayers().get(target), target, damage*-1);
+                    Game.getPlayers().get(target).Attacked(damage);
+                    if(targettilestatus==88){
+                            Game.TrapTriggered(target);
+                    }
+                }
+                else{
+                    System.out.println("Player " + target + " terlindungi dari serangan");
+                }
 	}
 }
 
@@ -61,14 +73,24 @@ class StopCard extends Card{
 	public void PlayCard(){
 		int targetpl = SelectTarget();
 		System.out.println("Played: " + this);
-		System.out.println("Player " + targetpl + " berhenti " + damage + " putaran");
-		Game.getPlayers().get(targetpl).Stopped(damage);
+                if(!Game.getPlayers().get(targetpl).getImun()){
+                    System.out.println("Player " + targetpl + " berhenti " + damage + " putaran");
+                    Game.getPlayers().get(targetpl).Stopped(damage);
+                }
+                else{
+                    System.out.println("Player " + targetpl + " terlindungi dari serangan");
+                }
 	}
 
 	public void PlayCard(int targetpl){
 		System.out.println("Played: " + this);
-		System.out.println("Player " + targetpl + " berhenti " + damage + " putaran");
-		Game.getPlayers().get(targetpl).Stopped(damage);
+           	if(!Game.getPlayers().get(targetpl).getImun()){
+                    System.out.println("Player " + targetpl + " berhenti " + damage + " putaran");
+                    Game.getPlayers().get(targetpl).Stopped(damage);
+                }
+                else{
+                    System.out.println("Player " + targetpl + " terlindungi dari serangan");
+                }
 	}
 }
 
@@ -80,7 +102,9 @@ class TrapSetCard extends Card{
 	public void PlayCard(){
 		System.out.println("Played: " + this);
 		System.out.println("Satu petak di belakang anda menjadi petak perangkap");
-		Game.getBoard().setTrap(Game.getPlayers().get(Game.getCurrentPlayerIdx()).getPosition()-1);
+		if(!Game.getPlayers().get(Game.getCurrentPlayerIdx()).getImun()){
+                    Game.getBoard().setTrap(Game.getPlayers().get(Game.getCurrentPlayerIdx()).getPosition()-1);
+                }
 	}
 }
 
@@ -95,23 +119,33 @@ class DisarmCard extends Card{
 	public void PlayCard(){
 		int targetpl = SelectTarget();
 		System.out.println("Played: " + this);
-		System.out.println("Player " + targetpl + " membuang 1 kartunya secara random");
-		Random index = new Random();
-		for (int i = 0; i < damage; i++)
-		{
-			int pil = index.nextInt(Game.getPlayers().get(targetpl).getHand().getSize());
-			Game.getPlayers().get(targetpl).getHand().Discard(pil);
-		}
+                if(!Game.getPlayers().get(targetpl).getImun()){
+                    System.out.println("Player " + targetpl + " membuang 1 kartunya secara random");
+                    Random index = new Random();
+                    for (int i = 0; i < damage; i++)
+                    {
+                            int pil = index.nextInt(Game.getPlayers().get(targetpl).getHand().getSize());
+                            Game.getPlayers().get(targetpl).getHand().Discard(pil);
+                    }
+                }
+                else{
+                    System.out.println("Player " + targetpl + " terlindungi dari serangan");
+                }
 	}
 	
 	public void PlayCard(int targetpl){
 		System.out.println("Played: " + this);
-		System.out.println("Player " + targetpl + " membuang 1 kartunya secara random");
-		Random index = new Random();
-		for (int i = 0; i < damage; i++)
-		{
-			int pil = index.nextInt(Game.getPlayers().get(targetpl).getHand().getSize());
-			Game.getPlayers().get(targetpl).getHand().Discard(pil);
-		}
+                if(!Game.getPlayers().get(targetpl).getImun()){
+                    System.out.println("Player " + targetpl + " membuang 1 kartunya secara random");
+                    Random index = new Random();
+                    for (int i = 0; i < damage; i++)
+                    {
+                            int pil = index.nextInt(Game.getPlayers().get(targetpl).getHand().getSize());
+                            Game.getPlayers().get(targetpl).getHand().Discard(pil);
+                    }
+                }
+                else{
+                    System.out.println("Player " + targetpl + " terlindungi dari serangan");
+                }
 	}
 }

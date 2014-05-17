@@ -21,7 +21,7 @@ public class Card{
 		System.out.println("Choose Target: ");
 		return targetin.nextInt();
 	}
-
+	public void Discard(){ Game.getDP().GetCard(this); }
 	public String getCardName(){ return CardName; }
 	public String getDescription(){ return Description; }
 	

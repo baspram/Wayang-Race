@@ -16,6 +16,10 @@ public class Nakula extends Player{
     final String description = "Pranawajati: Nakula dapat mengambil salah satu kartu lawan dan menaruhnya di tangan\n"
             + "Kekuatan dapat dilakukan tiap 4 putaran atau lebih";
     
+    public boolean isAction(){
+        return rechargeTime >=4 && !actionUsed;
+    }
+    
     /* Action of werkudara */
     public void useAction(){
         //Lalala put your code's here 

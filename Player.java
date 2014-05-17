@@ -73,6 +73,13 @@ public class Player {
     public boolean hasPlayedACard(){
             return PlayedCard;
     }
+    
+    public void setDiceRolled(int num){
+        diceRolled = num;
+    }
+    public void setRechargeTime(int num){
+        rechargeTime = num;
+    }
 	/* Print player's condition */
     public String toString(){
 		String role;
@@ -128,36 +135,39 @@ public class Player {
 	}
     /* Player advance on the map as many as the dice rolled */
     public void Advance(int diceNum){
-		Random Dice = new Random();
-                position += diceNum;
+		position += diceNum;
 		while(position>=Board.getNBlock()){
-			position -=Board.getNBlock();
+			position %= Board.getNBlock();
 			currentLap++;
-                        StartLap();
+			StartLap();		
 		}
-                diceRolled = diceNum;
+        diceRolled = diceNum;
 		Advanced = true;
                 if(currentLap > Game.getLapNumber()){
+                    System.out.println("Balapan ini dimenangkan oleh: " + this);
                     Game.Finish();
                 }
     }
     
 	/* Change the position of player because damaged */
     public void Attacked(int damage){
+            if(position==0||position==42){
+				return;
+			}
             if(!imunity){
-				position -= damage;
-                if(position<1){
-                    position = 1;
-                }
+                    position -= damage;
+                    if(position<1){
+                            position = 1;
+                    }
             }
-	}
+     }
 	
 	public void Boost(int power){
 		position +=power;
-		if(position>=Board.getNBlock()){
-			position-=Board.getNBlock();
-                        currentLap++;
-                        StartLap();
+		while(position>=Board.getNBlock()){
+			position %= Board.getNBlock();
+			currentLap++;
+			StartLap();	
 		}
 	}
 			
@@ -179,7 +189,9 @@ public class Player {
     }
     /* Suspended as many as the number */
     public void Stopped(int suspend){
-        stop = suspend;
+        if(!imunity){
+            stop = suspend;
+        }
     }
     /* Increase number of lap  */
     public void increaseLap(){
@@ -210,5 +222,13 @@ public class Player {
 
     public String getDescription(){
         return "";
+    }
+    
+    public boolean isAction(){
+        return rechargeTime>0;
+    }
+    
+    public boolean getImun(){
+        return imunity;
     }
 }

@@ -11,7 +11,7 @@ class mPlayer{
 		}
 		catch(Exception e){}
 		ActionDeck.Shuffle();
-		pl.StartLap(ActionDeck);
+                pl.StartLap();
 		pl.getHand().DisplayHand();
 	}
 }
