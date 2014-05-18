@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import java.util.*;
+
 /**
  *
  * @author Ahmad
@@ -25,8 +27,9 @@ public class Nakula extends Player{
         //Lalala put your code's here 
         if(rechargeTime>=4 && !actionUsed){
             //Pilih kartu lawan untuk disimpan ke tangan
+            Random rnd = new Random();
             int playerTarget  = SelectTarget();
-            int cardTarget    = SelectCardTarget();
+            int cardTarget    = rnd.nextInt(Game.getPlayers().get(playerTarget).getHand().getSize());
             Game.getPlayers().get(playerTarget).getHand().Discard(cardTarget);
             Game.getCurrentPlayer().getHand().Draw(Game.getDP().getTop());
             rechargeTime = 0;
