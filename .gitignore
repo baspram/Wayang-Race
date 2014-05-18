@@ -27,7 +27,13 @@
 /Werkudara.class
 /Yudhistira.class
 /BackgroundPicturePanel.class
-/*.db
-/*.class
-
-/Token.class
+/PlayerFactory.class
+/Hand$1.class
+/Game$1.class
+/Game$2.class
+/Game$3.class
+/Hand$2.class
+/Card$1.class
+/AttackCard$1.class
+/AttackCard$2.class
+/AttackCard$1$1.class

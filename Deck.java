@@ -10,10 +10,10 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
 public class Deck{
-	private Stack<Card> D;
+	private ArrayDeque<Card> D;
 	
 	public Deck(){
-		D = new Stack<Card>();
+		D = new ArrayDeque<Card>();
 		}
 		
 	public int Ndeck(){
@@ -68,15 +68,20 @@ public class Deck{
 		catch(Exception e){};
 	}
 	
-	public void PlayTopDeck(){
+	public void PlayTopDeck(int targetpl){
 		Card DrawnCard = new Card();
 		DrawnCard = D.peek();
 		D.pop();
-		DrawnCard.PlayCard();
+		D.addLast(DrawnCard);
+		DrawnCard.PlayCard(targetpl);
 	}
 	
 	public Card Drawn(){
 		Card DrawnCard = new Card();
+		if(D.isEmpty()){
+			D = Game.getDP().Export();
+			this.Shuffle();
+		}
 		DrawnCard = D.peek();
 		D.pop();
 		return DrawnCard;

@@ -1,4 +1,62 @@
 <Coord>
 	<tile>
-	
+		<title>p1</title>
+		<x></x>
+		<y></y>
 	</tile>
+	<tile>
+		<title>p2</title>
+		<x></x>
+		<y></y>
+	</tile>
+	<tile>
+		<title>p3</title>
+		<x></x>
+		<y></y>
+	</tile>
+	<tile>
+		<title>p4</title>
+		<x></x>
+		<y></y>
+	</tile>
+	<tile>
+		<title>card1</title>
+		<x>1060</x>
+		<y>208</y>
+	</tile>
+	<tile>
+		<title>card2</title>
+		<x>1166</x>
+		<y>208</y>
+	</tile>
+	<tile>
+		<title>card3</title>
+		<x>1010</x>
+		<y>356</y>
+	</tile>
+	<tile>
+		<title>card4</title>
+		<x>1116</x>
+		<y>356</y>
+	</tile>
+	<tile>
+		<title>card5</title>
+		<x>1223</x>
+		<y>356</y>
+	</tile>
+	<tile>
+		<title>card6</title>
+		<x>1060</x>
+		<y>504</y>
+	</tile>
+	<tile>
+		<title>card7</title>
+		<x>1166</x>
+		<y>504</y>
+	</tile>
+	<tile>
+		<title>dice</title>
+		<x></x>
+		<y></y>
+	</tile>
+</Coord>

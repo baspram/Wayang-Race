@@ -1,10 +1,10 @@
 import java.util.*;
 
 public class DiscardPile{
-	private Stack<Card> P;
+	private ArrayDeque<Card> P;
 	
 	public DiscardPile(){
-		P = new Stack<Card>();
+		P = new ArrayDeque<Card>();
 	}
 	
 	public int Ndeck(){
@@ -15,14 +15,14 @@ public class DiscardPile{
 		P.push(in);
 	}
 
-	public Stack<Card> Export(){
-		Stack<Card> temp = new Stack<Card>();
+	public ArrayDeque<Card> Export(){
+		ArrayDeque<Card> temp = new ArrayDeque<Card>();
 		Card hapus = new Card();
-		temp = P;
 		while(!P.isEmpty())
 		{
 			hapus = P.peek();
 			P.pop();
+			temp.push(hapus);
 		}
 		return temp;
 	}

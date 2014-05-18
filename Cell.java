@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 
 public class Cell {
 	//Window
+	int ntoken;
 	ImageIcon cellIcon;
 	JLabel cellText;
 	JLabel cellTile;
@@ -28,25 +29,23 @@ public class Cell {
 	//Methods
 	
 	//konstruktor
-	public Cell(String P1, String P2, String P3, String P4)
+	public Cell(String[] Pl, int nPlayer)
 	{
 		//Window
-		Player = new ArrayList<JLabel>(4);
-		for(int i=0; i<4; i++)
+		P = new String[nPlayer];
+		Player = new ArrayList<JLabel>(nPlayer);
+		for(int i=0; i<nPlayer; i++)
 		{
 			JLabel e = new JLabel();
 			Player.add(e);
+			P[i]=new String(Pl[i]);
 		}
-		P = new String[4];
-		P[0] = new String(P1);
-		P[1] = new String(P2);
-		P[2] = new String(P3);
-		P[3] = new String(P4);
+		ntoken = nPlayer;
+		cellText = new JLabel();
+		cellTile = new JLabel();
 		//normal
 		cellNo = clearCell;
 		playersIn = clearCell;
-		cellText = new JLabel();
-		cellTile = new JLabel();
 	}
 	
 	// window setTilePosition
@@ -61,7 +60,7 @@ public class Cell {
 		cellText.setBounds(x,y,tileSize,tileSize);
 		cellText.setVisible(true);
 		
-		for(int i=0; i<4; i++)
+		for(int i=0; i<ntoken; i++)
 		{
 			int addx=0; int addy=0;
 			switch(i)
@@ -79,13 +78,12 @@ public class Cell {
 	// window gettile
 	public JLabel[] getTile()
 	{
-		JLabel[] gi = new JLabel[6];
+		System.out.println("getTile");
+		JLabel[] gi = new JLabel[ntoken+2];
 		gi[0] = cellTile;
 		gi[1] = cellText;
-		gi[2] = Player.get(0);
-		gi[3] = Player.get(1);
-		gi[4] = Player.get(2);
-		gi[5] = Player.get(3);
+		for(int i=2; i<ntoken+2; i++)
+			gi[i] = Player.get(i-2);
 		return gi;
 	}
 	
@@ -150,8 +148,9 @@ public class Cell {
 	public void setPlayersIn(String P)
 	{	
 		int a = Integer.parseInt(P);
-		if(a >= 1 && a <= 4)
+		if(a >= 1 && a <= ntoken)
 		{
+			System.out.println("set token : images/" + this.P[a-1] + ".png");
 			ImageIcon c = new ImageIcon("images/" + this.P[a-1] + ".png");
 			Player.get(a-1).setIcon(c);
 		}
@@ -193,9 +192,10 @@ public class Cell {
 				cellTile.setVisible(true);
 			}
 			int a = Integer.parseInt(P)-1;
-			if(a>=0 && a<=3) Player.get(a).setIcon(null);
+			if(a>=0 && a<ntoken) Player.get(a).setIcon(null);
 			return true;
 		}
 		else return false;
 	}
+
 }
