@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * * <h1>Card Class</h1>
+* <h1>Card Class</h1>
 * Kelas ini merepresentasikan kartu yang digunakan
 * dalam permainan
 * 
@@ -48,11 +48,20 @@ public class Card{
 		return targetin.nextInt();
 	}
 	
-	
+	/**Method untuk membuang kartu ke discard pile*/
 	public void Discard(){ Game.getDP().GetCard(this); }
+	
+	/**Getter untuk atribut CardName
+	 * @return CardName nama dari kartu yang bersangkutan*/
 	public String getCardName(){ return CardName; }
+	
+	/**Getter untuk atribut Description
+	 * @return Description nama dari kartu yang bersangkutan*/
 	public String getDescription(){ return Description; }
 	
+	/**konverter toString() untuk Kelas Card untuk ditampilkan saat kartu dimainkan 
+	 * atau ditampilkan saat melihat hand
+	 * @return String berisi CardName\nDescription*/
 	public String toString(){
 		String S = getCardName() + "\n" + getDescription();
 		return S;
