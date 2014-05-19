@@ -55,7 +55,7 @@ public class Card{
 		}
 		catch(Exception e){
 			System.out.println("target tidak valid, target dirandom");
-			targetpl = 1+rnd.nextInt(Game.getPlayers().size());
+			targetpl = 1+rnd.nextInt(Game.getPlayers().size()-1);
 		}
 		return targetpl;
 	}
