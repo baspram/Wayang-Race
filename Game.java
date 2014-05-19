@@ -1,6 +1,9 @@
 import java.util.*;
 import java.io.*;
 
+/**Kelas utama dalam game ini yang berisi atribut-atribut static yang berada pada dunia game ini,
+ * yaitu Array of Player, ActionDeck, TrapDeck, GameBoard, dan DiscardPile. Kelas ini juga menghandle
+ * semua fungsi utama dalam mekanisme game, initialization dan turn */
 public class Game{
 	private static ArrayList<Player> Players;
 	private static Deck ActionDeck;
@@ -11,7 +14,10 @@ public class Game{
 	private final int DiceSide = 12;
 	private static boolean GameFinish;
 	private static int LapNumber;
-        
+       
+    /**Konstruktor game yang langsung menginisialisasi semua komponen yang diperlukan dalam game
+     * @param Nplayer jumlah player yang akan memainkan game, berkisar dari 2-4
+     */
 	Game(int Nplayer){
 		ActionDeck = new Deck();
 		TrapDeck = new Deck();
@@ -28,17 +34,24 @@ public class Game{
                 setNumberLap();
 		Initialization();
 	}
-	
+		
+		/**method yang akan meminta pengguna memasukkan jumlah lap/putaran yang diperlukan untuk menyelesaikan
+		 * permainan*/
         public void setNumberLap(){
                 Scanner targetin = new Scanner(System.in);
                 System.out.println("Number of lap: ");
                 LapNumber = targetin.nextInt();
         }
         
+        /**getter untuk jumlah lap yang dibutuhkan untuk finish
+         * @return jumlah lap yang required untuk finish*/
         public static int getLapNumber(){
                 return LapNumber;
         }
 
+		/**fungsi untuk meminta pengguna memilih role yang akan dia gunakan
+		 * @return String berupa nama role yang akan dikirim ke PlayerFactory untuk
+		 * menghasilkan instansiasi player yang akan digunakan */
         public String SelectTarget(){
                 Scanner targetin = new Scanner(System.in);
                 String s;
@@ -60,28 +73,37 @@ public class Game{
                 return s;
         }   
 
+	/**getter untuk discardpile yang digunakan di dunia game*/
 	public static DiscardPile getDP(){
 		return DumpPile;
 	}
+	/**getter untuk Array of player yang bermain game*/
 	public static ArrayList<Player> getPlayers(){
 		return Players;
 	}
+	/**getter untuk board game yang digunakan*/
 	public static Board getBoard(){
 		return GameBoard;
 	}
+	/**getter untuk index player yang sedang aktif menjalankan gilirannya*/
 	public static int getCurrentPlayerIdx(){
 		return CurrentPlayer;
 	}
+	/**getter untuk Player yang sedang aktif menjalankan gilirannya*/
 	public static Player getCurrentPlayer(){
 		return Players.get(CurrentPlayer);
 	}
+	/**getter untuk ActionDeck yang digunakan dalam permainan*/
 	public static Deck getActionDeck(){
 		return ActionDeck;
 	}
+	/**method untuk memberitahu program bahwa game telah selesai*/
 	public static void Finish(){
 		GameFinish = true;
 	}
 	
+	/**method untuk menginisialisasi elemen-elemen yang digunakan, seperti meload deck dari file eksternal
+	 * hingga menjadi deck yang bisa dimainkan di dalam game*/
 	public void Initialization(){
 		try{
 			ActionDeck.LoadDeck(new File("ActionDeck.xml"));
@@ -96,6 +118,9 @@ public class Game{
 		}
 	}
 	
+	/**Method utama yang menjalankan semua aksi yang dapat digunakan pemain dalam permainan,
+	 * seperti maju dengan kocokan dadu, mainkan kartu tangan, gunakan aksi, hingga pengguna mengakhiri giliran
+	 * dan game mengganti pemain yang aktif menjalankan giliran*/
 	public void Turn(){
 		int opt=0;
 		int targettilestatus;
@@ -181,12 +206,19 @@ public class Game{
 		}
 	}
 	
+	/**method untuk dijalankan saat seorang pemain berhenti di petak yang merupakan jebakan, method ini akan
+	 * memainkan kartu teratas dari deck Trap untuk dikenakan kepada pemain yang menginjaknya
+	 * @param target indeks pemain yang terkena jebakan untuk diberi efek dari kartu teratas deck Trap
+	 * */
 	public static void TrapTriggered(int target){
 		System.out.println("Pemain terkena jebakan");
 		TrapDeck.PlayTopDeck(target);
 		GameBoard.unsetTrap(Players.get(CurrentPlayer).getPosition());
 	}
 	
+	/**method utama untuk memulai menjalankan turn pertama dan mengulang hingga GameFinish dibuat true oleh method Finish
+	 * dan pada saat permainan selesai menuliskan pemenangnya
+	 * */
 	public void Start(){
 		GameFinish=false;
 		while(!GameFinish){
@@ -196,6 +228,8 @@ public class Game{
 		System.out.println("\n\n\nPermainan selesai");
 	}
         
+        /**method untuk menampilkan status seluruh pemain, posisi, role dan aksi yang bisa digunakannya
+         * */
         public void printStatus(){
               int i =0;
               for(Player e: Players){
