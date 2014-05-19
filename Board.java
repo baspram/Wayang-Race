@@ -1,3 +1,8 @@
+/** Kelas Board yang merepresentasikan board permainan.
+ * Board terdiri dari 42 kotak(Tiles) di mana masing-masing
+ * kotak menentukan posisi pemain dan bisa terdapat trap pada tiles
+ */
+
 import java.util.*;
 import java.io.*;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -21,6 +26,8 @@ public class Board {
 	int nplayer;
 	//Method
 	// Constructor
+	/** Constructor
+	 */
 	public Board()
 	{
 		cell = new Cell[BOARDY][BOARDX];
@@ -29,6 +36,8 @@ public class Board {
 				cell[i][j] = new Cell();
 		initialized = initRoad();
 	}
+	/**konstruktor dengan parameter
+	 */
 	public Board(int Nplayer)
 	{
 		cell = new Cell[BOARDY][BOARDX];
@@ -43,12 +52,14 @@ public class Board {
 		}
 	}
 	
-	//getter NBlock
+	/**getter NBlock
+	 */ 
 		public static int getNBlock(){
 			return NBLOCK;
 		}
 	
-	// Scan dari file eksternal, membuat jalan
+	/** Scan dari file eksternal, membuat jalan
+	 */ 
 	public boolean initRoad()
 	{
         try {
@@ -82,7 +93,8 @@ public class Board {
         return true;
 	}
 	
-	// menggambarkan board ke layar
+	/** menggambarkan board ke layar
+	 */ 
 	public void drawBoard()
 	{
 		
@@ -161,7 +173,8 @@ public class Board {
 		}
 	}
 	
-	// mengembalikan 2 buah integer dalam array yang merupakan koordinat cell dengan nomor tertentu NoCell
+	/** mengembalikan 2 buah integer dalam array yang merupakan koordinat cell dengan nomor tertentu NoCell
+	*/
 	public int[] getCellCoor(String NoCell)
 	{
 		int baris = 0; int kolom = 0;
@@ -186,6 +199,8 @@ public class Board {
 		return kembalian;
 	}
 	
+	/**memasang trap, mengubah status yang tadinya normal menjadi terkena trap
+	 */  
 	public boolean setTrap(int NoCell)
 	{
 		Integer trap = new Integer(NoCell);
@@ -193,6 +208,8 @@ public class Board {
 		return cell[koordinat[0]][koordinat[1]].setTrap();
 	}
 	
+	/**menghilangkan trap, mengubah status yang tadinya terkena tap menjadi trap
+	 */ 
 	public boolean unsetTrap(int NoCell)
 	{
 		Integer trap = new Integer (NoCell);
@@ -200,7 +217,8 @@ public class Board {
 		return cell[koordinat[0]][koordinat[1]].unsetTrap();
 	}
 	
-	// memindahkan player nomor playernumber sebesar increment
+	/** memindahkan player nomor playernumber sebesar increment
+	*/
 	public int move(Player pl, int playernumber, int increment)
 	{
 		System.out.println(increment);
