@@ -40,7 +40,13 @@ public class Game{
         public void setNumberLap(){
                 Scanner targetin = new Scanner(System.in);
                 System.out.println("Number of lap: ");
-                LapNumber = targetin.nextInt();
+                try{
+					LapNumber = targetin.nextInt();
+				}
+				catch(Exception e){
+					LapNumber = 2;
+					System.out.println("masukan tidak valid, jumlah lap menjadi default 2 lap");
+				}
         }
         
         /**getter untuk jumlah lap yang dibutuhkan untuk finish
@@ -128,7 +134,7 @@ public class Game{
 		boolean switchplayer=true;
 		BufferedReader Buff = new BufferedReader(new InputStreamReader(System.in));
 		Scanner Option = new Scanner(System.in);
-                Random Dice = new Random();
+        Random Dice = new Random();
 		Players.get(CurrentPlayer).StartTurn();
 		while(opt!=5){
 			GameBoard.drawBoard();

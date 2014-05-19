@@ -205,7 +205,6 @@ public class Board {
 	{
 		System.out.println(increment);
 		if((pl.getPosition()==1||pl.getPosition()==0||pl.getPosition()==42)&&increment<0){
-			System.out.println("Masuk move yang harusnya ga move");
 			return 0;
 		}
 		else{

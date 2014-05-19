@@ -44,8 +44,20 @@ public class Card{
 	 * */
 	public int SelectTarget(){
 		Scanner targetin = new Scanner(System.in);
+		Random rnd = new Random();
+		int targetpl;
 		System.out.println("Choose Target: ");
-		return targetin.nextInt();
+		try{
+			targetpl = targetin.nextInt();
+			if(targetpl<1||targetpl>Game.getPlayers().size()){
+				throw new Exception();
+			}
+		}
+		catch(Exception e){
+			System.out.println("target tidak valid, target dirandom");
+			targetpl = 1+rnd.nextInt(Game.getPlayers().size());
+		}
+		return targetpl;
 	}
 	
 	/**Method untuk membuang kartu ke discard pile*/
