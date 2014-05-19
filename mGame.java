@@ -5,7 +5,11 @@ public class mGame{
 	public static void main(String args[]){
 		int nplayer;
 		Scanner scn = new Scanner(System.in);
-		System.out.println("||Wayang Race||");
+		System.out.println("===================");
+		System.out.println("||               ||");
+		System.out.println("||  Wayang Race  ||");
+		System.out.println("||               ||");
+		System.out.println("===================");
 		System.out.println("Masukkan jumlah pemain(2-4):");
 		try{
 			nplayer = scn.nextInt();
