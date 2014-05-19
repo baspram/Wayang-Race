@@ -1,26 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import java.util.*;
 /**
- *
- * @author Ahmad
+ * <h1>Kelas untuk role Sadewa </h1>
+ * Kelas Sadewa merupakan kelas yang mewakili
+ * tokoh Sadewa. Tokoh ini memilliki kelebihan yaitu dapat meniru karakter
+ * wayang lain dan menggunakan kekuatan mereka.
+ * Sadewa memiliki kekuatan yang dinamakan Sadewah
+ * @author LimaPandawa
+ * @version  1.0
  */
 public class Sadewa extends Player{
+    /**
+     * Konstruktor dari kelas Sadewa, akan mengganti id menjadi bernilai 3
+     */
     public Sadewa(){
         id = 3;
     }
-     /* Werkudara's description */
+     /**
+      * Atribut description menjelaskan kekuatan yang dimiliki Sadewa
+      */
     final String description = "Sadewah: Sadewa dapat meniru karakter wayang lain dan menggunakan kekuatan mereka\n"
             + "Kekuatan dapat dilakukan tiap 4 putaran atau lebih";
-    
+    /**
+     * Mengembalikan true apabila Sadewa dapat menggunakan kekuatannya
+     * pada suatu putaran.
+     * @return boolean
+     */
      public boolean isAction(){
         return rechargeTime >=4 && !actionUsed;
     }
-    
-    /* Action of werkudara */
+    /**
+     * Menjalankan aksi dari Sadewa yaitu meniru karakter atau role yang sesuai 
+     * dengan pilihan yang dimasukan oleh player
+     */
     public void useAction(){
         //Lalala put your code's here 
         //Kekuatannya sadewa bisa clone
@@ -58,7 +69,11 @@ public class Sadewa extends Player{
         else
             System.out.println("Tidak bisa menggunakan aksi ini.");
     }
-    
+    /**
+     * Menentukan role mana yang diinginkan oleh player untuk 
+     * ditiru
+     * @return int
+     */
    public int SelectType(){
 		Scanner targetin = new Scanner(System.in);
 		System.out.println("Masukan nomor pilihan");
@@ -69,11 +84,17 @@ public class Sadewa extends Player{
                 System.out.println("Choose Target: ");
 		return targetin.nextInt();
     }
-    
+    /**
+     * getter dari atribut description
+     * @return String
+     */
     public String getDescription(){
         return description;
     }
-    
+    /**
+     * getter dari role
+     * @return String
+     */
     public String getRole(){
         return "Sadewa";
     }

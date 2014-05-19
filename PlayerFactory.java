@@ -1,16 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author Ahmad
+ * <h1>Kelas factory untuk menghasilkan player sesuai 
+ * dengan rolenya</h1>
+ * Kelas ini akan menerima permintaan untuk menciptakan
+ * role-role sesuai dengan namanya
+ * @author LimaPandawa
  */
 public class PlayerFactory {
+    /**
+     * Konstruktor dari kelas Player Factory
+     */
     public PlayerFactory(){}
-    
+    /**
+     * Method yang digunakan untuk menghasilkan role sesuai dengan 
+     * roleName yang diberi. Factory akan menghasilkan salah satu 
+     * diantara role berikut: Arjuna, Nakula, Sadewa, Werkudara, Yudhistira
+     * @param roleName
+     * @return Player
+     */
     public Player getRole(String roleName){
         if(roleName.equalsIgnoreCase("Arjuna")){
             return new Arjuna();

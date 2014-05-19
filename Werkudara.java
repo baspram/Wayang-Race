@@ -1,26 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author Ahmad
+ * <h1>Kelas untuk role Werkudara </h1>
+ * Kelas Werkudara merupakan kelas yang mewakili
+ * tokoh Werkudara. Tokoh ini memiliki kekuatan untuk menyerang lawan
+ * dan memundurkan posisinya sebanyak 4 langkah
+ * Werkudra memiliki kekuatan yang dinamakan Kuku pancanaka
+ * @author LimaPandawa
+ * @version  1.0
  */
 public class Werkudara extends Player{
+    /**
+     * Konstruktor dari kelas Werkudara, mengganti nilai id menjadi 4
+     */
     public Werkudara(){
         id = 4;
     }
-     /* Werkudara's description */
+     /**
+      * Atribut description menjelaskan kekuatan yang dimiliki Werkudara
+      */
     final String description = "Kuku pancanaka: Werkudara dapat menyerang lawan sehingga memundurkan posisinya sejauh 4 langkah\n"
             + "Kekuatan dapat dilakukan tiap 3 putaran atau lebih";
-    
+    /**
+     * Mengembalikan true apabila Werkudara dapat menggunakan kekuatannya
+     * pada suatu putaran.
+     * @return boolean
+     */
     public boolean isAction(){
         return rechargeTime >=3 && !actionUsed;
     }
-    
-    /* Action of werkudara */
+    /**
+     * Menjalankan aksi dari Werkudara yaitu dapat memundurkan posisi
+     * pemain sejauh 4 langkah
+     */
     public void useAction(){
         //Lalala put your code's here 
         // Tiap tiga giliran baru bisa jalan
@@ -40,10 +50,17 @@ public class Werkudara extends Player{
             System.out.println("Tidak bisa menggunakan aksi ini.");
         }
     }
+    /**
+     * Getter dari descriptiion
+     * @return String
+     */
     public String getDescription(){
         return description;
     }
-    
+    /**
+     * getter dari role
+     * @return 
+     */
     public String getRole(){
         return "Werkudara";
     }
